@@ -20,10 +20,12 @@ http://localhost:4173
 - `styles.css` - visual system and responsive layout
 - `site.js` - camera controls and loading state
 - `models/scifi-scene.glb` - current featured 3D model
+- `models/ac.glb` - AC hard-surface model
 
 Mobile model:
 
 - `models/scifi-scene-mobile.glb` - lighter phone version used automatically by the main mobile viewer
+- `models/ac-mobile.glb` - lighter phone version of the AC hard-surface model
 - `tools/make-mobile-glb.py` - rebuilds the mobile GLB by resizing embedded textures
 
 ## Hosting
