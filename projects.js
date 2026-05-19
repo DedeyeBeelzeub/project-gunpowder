@@ -110,5 +110,21 @@ window.PORTFOLIO_PROJECTS = [
     summary: "A midweight fortress-style structure model prepared for realtime inspection.",
     description:
       "A structural sci-fi study with enough detail for close inspection while staying light enough for web delivery. The detail page keeps the model centered as a dedicated realtime asset."
+  },
+  {
+    id: "deathsphere",
+    title: "DEATHSPHERE",
+    category: "Hard Surface / Artifact",
+    desktopSrc: "models/deathsphere.glb",
+    mobileSrc: "models/deathsphere-mobile.glb",
+    desktopSize: "86.9 MB",
+    mobileSize: "4.2 MB",
+    format: "GLB",
+    mood: "Dark industrial",
+    cardOrbit: "-35deg 66deg 300%",
+    detailOrbit: "-35deg 64deg 340%",
+    summary: "A large hard-surface sphere asset with a compressed mobile inspection file.",
+    description:
+      "A heavy industrial sphere model with embedded metal materials. The desktop detail view keeps the full-resolution GLB available, while the gallery and mobile detail view use a compressed realtime version for smoother loading."
   }
 ];

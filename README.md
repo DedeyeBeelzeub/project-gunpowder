@@ -26,6 +26,7 @@ http://localhost:4173
 - `models/hailmary.glb` - Hail Mary figure/pose model
 - `models/spaceship.glb` - SpaceShip sci-fi vehicle model
 - `models/citadel.glb` - Citadel structure model
+- `models/deathsphere.glb` - Deathsphere hard-surface artifact model
 
 Mobile model:
 
@@ -36,6 +37,7 @@ Mobile model:
 - `models/hailmary-mobile.glb` - phone version of Hail Mary
 - `models/spaceship-mobile.glb` - phone version of SpaceShip
 - `models/citadel-mobile.glb` - phone version of Citadel
+- `models/deathsphere-mobile.glb` - compressed phone version of Deathsphere
 - `tools/make-mobile-glb.py` - rebuilds the mobile GLB by resizing embedded textures
 
 ## Hosting

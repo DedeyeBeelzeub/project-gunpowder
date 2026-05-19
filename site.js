@@ -32,12 +32,13 @@ function detailHref(project) {
 
 function projectCard(project) {
   const href = detailHref(project);
+  const previewSrc = project.previewSrc ?? project.mobileSrc ?? project.desktopSrc;
   return `
     <article class="project-tile" data-project-id="${escapeHtml(project.id)}">
       <div class="tile-media">
         <model-viewer
           class="project-viewer"
-          data-desktop-src="${escapeHtml(project.desktopSrc)}"
+          data-desktop-src="${escapeHtml(previewSrc)}"
           data-mobile-src="${escapeHtml(project.mobileSrc)}"
           data-mobile-gallery="defer"
           alt="Interactive preview of ${escapeHtml(project.title)}"
