@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Interactive 3D portfolio featuring dark dystopian sci-fi environments and realtime model viewing."
+    />
+    <title>Noble Donage | 3D Portfolio</title>
+    <link rel="preconnect" href="https://ajax.googleapis.com" />
+    <link rel="stylesheet" href="styles.css?v=6" />
+    <script
+      type="module"
+      src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"
+    ></script>
+    <script src="site.js?v=2" defer></script>
+  </head>
+  <body>
+    <header class="site-header" aria-label="Primary">
+      <a class="brand" href="#top" aria-label="Noble Donage home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>Noble Donage</span>
+      </a>
+      <nav class="site-nav">
+        <a href="#work">Work</a>
+        <a href="#profile">Profile</a>
+        <a href="mailto:noble.donage@gmail.com">Contact</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="viewer-shell" aria-label="Featured interactive 3D scene">
+          <model-viewer
+            id="scene-viewer"
+            src="models/scifi-scene.glb"
+            alt="Dark sci-fi environment scene by Noble Donage"
+            camera-controls
+            enable-pan
+            auto-rotate
+            auto-rotate-delay="2400"
+            rotation-per-second="14deg"
+            touch-action="pan-y"
+            interaction-prompt="none"
+            environment-image="neutral"
+            shadow-intensity="1"
+            shadow-softness="0.9"
+            exposure="0.72"
+            tone-mapping="aces"
+            camera-orbit="-28deg 68deg 320%"
+            field-of-view="42deg"
+            min-camera-orbit="auto auto 80%"
+            max-camera-orbit="auto auto 720%"
+            bounds="tight"
+            loading="eager"
+            reveal="auto"
+          ></model-viewer>
+          <div class="scene-vignette" aria-hidden="true"></div>
+          <div class="scanlines" aria-hidden="true"></div>
+          <div class="load-track" aria-hidden="true">
+            <span id="load-progress"></span>
+          </div>
+        </div>
+
+        <div class="hero-copy">
+          <p class="eyebrow">Interactive 3D Portfolio</p>
+          <h1 id="hero-title">Dark Sci-Fi Worlds Built For Inspection</h1>
+          <p class="hero-lede">
+            A minimal portfolio space for realtime 3D environments, props, and
+            cinematic hard-surface work.
+          </p>
+          <div class="hero-actions" aria-label="Portfolio actions">
+            <a class="button primary" href="#work">View Work</a>
+            <a class="button secondary" href="mailto:noble.donage@gmail.com">Contact</a>
+          </div>
+        </div>
+
+        <aside class="scene-panel" aria-label="Featured project details">
+          <p class="panel-kicker">Featured Model</p>
+          <h2>SCIFI SCENE</h2>
+          <dl>
+            <div>
+              <dt>Format</dt>
+              <dd>GLB</dd>
+            </div>
+            <div>
+              <dt>Scale</dt>
+              <dd>Web realtime</dd>
+            </div>
+            <div>
+              <dt>Mood</dt>
+              <dd>Dystopian minimal</dd>
+            </div>
+          </dl>
+        </aside>
+
+        <div class="viewer-controls" aria-label="Scene camera controls">
+          <button type="button" data-orbit="-28deg 68deg 320%" aria-pressed="true">Front</button>
+          <button type="button" data-orbit="-88deg 66deg 340%">Left</button>
+          <button type="button" data-orbit="54deg 66deg 340%">Right</button>
+          <button type="button" data-orbit="-28deg 38deg 390%">High</button>
+          <button type="button" id="toggle-rotate" aria-pressed="true">Auto</button>
+          <button type="button" id="reset-view">Reset</button>
+        </div>
+      </section>
+
+      <section class="work-section" id="work" aria-labelledby="work-title">
+        <div class="section-heading">
+          <p class="eyebrow">Selected Work</p>
+          <h2 id="work-title">Realtime Model Showcase</h2>
+        </div>
+        <div class="project-grid">
+          <article class="project-tile">
+            <div class="tile-media">
+              <model-viewer
+                src="models/scifi-scene.glb"
+                alt="Preview of SCIFI SCENE"
+                camera-controls
+                enable-pan
+                touch-action="pan-y"
+                interaction-prompt="none"
+                auto-rotate
+                auto-rotate-delay="1800"
+                rotation-per-second="10deg"
+                camera-orbit="-30deg 68deg 240%"
+                field-of-view="42deg"
+                min-camera-orbit="auto auto 120%"
+                max-camera-orbit="auto auto 920%"
+                bounds="tight"
+                environment-image="neutral"
+                exposure="0.7"
+                tone-mapping="aces"
+                loading="lazy"
+                reveal="auto"
+              ></model-viewer>
+            </div>
+            <div class="tile-content">
+              <p class="project-type">Environment / Scene</p>
+              <h3>SCIFI SCENE</h3>
+              <p>
+                A dark industrial showcase piece presented as a realtime browser
+                model for portfolio review.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="profile-section" id="profile" aria-labelledby="profile-title">
+        <div class="section-heading">
+          <p class="eyebrow">Profile</p>
+          <h2 id="profile-title">3D Artist Portfolio Base</h2>
+        </div>
+        <div class="profile-layout">
+          <p>
+            This first version is set up around one hero asset, with room to add
+            more models, project notes, texture breakdowns, turntables, and
+            external portfolio links.
+          </p>
+          <ul class="tool-list" aria-label="Portfolio focus areas">
+            <li>3D environments</li>
+            <li>Hard-surface props</li>
+            <li>Realtime presentation</li>
+            <li>Interactive web viewing</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
