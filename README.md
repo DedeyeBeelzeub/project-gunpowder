@@ -23,6 +23,8 @@ http://localhost:4173
 - `models/ac.glb` - AC hard-surface model
 - `models/freedom-dorrito-ed.glb` - Freedom Dorrito experimental form
 - `models/x.glb` - X hard-surface symbol model
+- `models/hailmary.glb` - Hail Mary figure/pose model
+- `models/spaceship.glb` - SpaceShip sci-fi vehicle model
 
 Mobile model:
 
@@ -30,6 +32,8 @@ Mobile model:
 - `models/ac-mobile.glb` - lighter phone version of the AC hard-surface model
 - `models/freedom-dorrito-ed-mobile.glb` - phone version of Freedom Dorrito
 - `models/x-mobile.glb` - phone version of X
+- `models/hailmary-mobile.glb` - phone version of Hail Mary
+- `models/spaceship-mobile.glb` - phone version of SpaceShip
 - `tools/make-mobile-glb.py` - rebuilds the mobile GLB by resizing embedded textures
 
 ## Hosting

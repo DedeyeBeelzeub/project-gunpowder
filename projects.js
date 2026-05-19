@@ -62,5 +62,37 @@ window.PORTFOLIO_PROJECTS = [
     summary: "A heavier figure model prepared for dedicated realtime inspection.",
     description:
       "A larger figure model with more geometry weight than the other assets. The detail view loads it as a single focused inspection experience instead of stacking it with every other model on mobile."
+  },
+  {
+    id: "hailmary",
+    title: "HAIL MARY",
+    category: "Figure / Pose",
+    desktopSrc: "models/hailmary.glb",
+    mobileSrc: "models/hailmary-mobile.glb",
+    desktopSize: "75 KB",
+    mobileSize: "75 KB",
+    format: "GLB",
+    mood: "Gesture study",
+    cardOrbit: "-25deg 66deg 260%",
+    detailOrbit: "-25deg 64deg 280%",
+    summary: "A compact figure/pose asset prepared for fast realtime inspection.",
+    description:
+      "A lightweight pose study that loads quickly and works well as a focused inspection piece. Its small file size makes it comfortable across desktop and mobile detail views."
+  },
+  {
+    id: "spaceship",
+    title: "SPACESHIP",
+    category: "Vehicle / Spacecraft",
+    desktopSrc: "models/spaceship.glb",
+    mobileSrc: "models/spaceship-mobile.glb",
+    desktopSize: "32.9 MB",
+    mobileSize: "32.9 MB",
+    format: "GLB",
+    mood: "Sci-fi vehicle",
+    cardOrbit: "-35deg 66deg 300%",
+    detailOrbit: "-35deg 64deg 340%",
+    summary: "A larger sci-fi vehicle model presented as a dedicated inspection asset.",
+    description:
+      "A heavier spacecraft model built for full-screen inspection. Because this file is geometry-heavy rather than texture-heavy, the detail page presents it as a focused model view instead of loading it into the mobile gallery."
   }
 ];
