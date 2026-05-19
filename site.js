@@ -1,4 +1,5 @@
 const viewer = document.querySelector("#scene-viewer");
+const projectViewers = [...document.querySelectorAll(".project-viewer")];
 const progress = document.querySelector("#load-progress");
 const orbitButtons = [...document.querySelectorAll("[data-orbit]")];
 const rotateButton = document.querySelector("#toggle-rotate");
@@ -12,6 +13,60 @@ const cameraPresets = {
 const narrowViewport = window.matchMedia("(max-width: 700px)");
 const coarsePointer = window.matchMedia("(pointer: coarse)");
 let defaultOrbit = viewer?.getAttribute("camera-orbit") ?? cameraPresets.desktop[0];
+const sourceAvailability = new Map();
+
+async function sourceExists(url) {
+  if (!url) {
+    return false;
+  }
+
+  if (sourceAvailability.has(url)) {
+    return sourceAvailability.get(url);
+  }
+
+  try {
+    const response = await fetch(url, { method: "HEAD", cache: "no-cache" });
+    const exists = response.ok;
+    sourceAvailability.set(url, exists);
+    return exists;
+  } catch {
+    sourceAvailability.set(url, false);
+    return false;
+  }
+}
+
+async function pickModelSource(element) {
+  const desktopSrc = element.dataset.desktopSrc;
+  const mobileSrc = element.dataset.mobileSrc;
+
+  if ((narrowViewport.matches || coarsePointer.matches) && (await sourceExists(mobileSrc))) {
+    return mobileSrc;
+  }
+
+  return desktopSrc;
+}
+
+async function applyResponsiveSources() {
+  if (viewer) {
+    const nextSrc = await pickModelSource(viewer);
+    if (nextSrc && viewer.getAttribute("src") !== nextSrc) {
+      viewer.setAttribute("src", nextSrc);
+    }
+  }
+
+  projectViewers.forEach((projectViewer) => {
+    const shouldLoad = !narrowViewport.matches && !coarsePointer.matches;
+    const desktopSrc = projectViewer.dataset.desktopSrc;
+
+    if (shouldLoad && desktopSrc && projectViewer.getAttribute("src") !== desktopSrc) {
+      projectViewer.setAttribute("src", desktopSrc);
+    }
+
+    if (!shouldLoad && projectViewer.hasAttribute("src")) {
+      projectViewer.removeAttribute("src");
+    }
+  });
+}
 
 function setPressed(activeButton) {
   orbitButtons.forEach((button) => {
@@ -67,6 +122,7 @@ function watchMediaQuery(mediaQuery, callback) {
 }
 
 if (viewer) {
+  applyResponsiveSources();
   syncCameraPresets(true);
   syncPerformanceMode();
 
@@ -109,8 +165,12 @@ if (viewer) {
   });
 
   watchMediaQuery(narrowViewport, () => {
+    applyResponsiveSources();
     syncCameraPresets(true);
     syncPerformanceMode();
   });
-  watchMediaQuery(coarsePointer, syncPerformanceMode);
+  watchMediaQuery(coarsePointer, () => {
+    applyResponsiveSources();
+    syncPerformanceMode();
+  });
 }

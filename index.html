@@ -9,12 +9,12 @@
     />
     <title>Noble Donage | 3D Portfolio</title>
     <link rel="preconnect" href="https://ajax.googleapis.com" />
-    <link rel="stylesheet" href="styles.css?v=8" />
+    <link rel="stylesheet" href="styles.css?v=9" />
     <script
       type="module"
       src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"
     ></script>
-    <script src="site.js?v=4" defer></script>
+    <script src="site.js?v=5" defer></script>
   </head>
   <body>
     <header class="site-header" aria-label="Primary">
@@ -34,7 +34,8 @@
         <div class="viewer-shell" aria-label="Featured interactive 3D scene">
           <model-viewer
             id="scene-viewer"
-            src="models/scifi-scene.glb"
+            data-desktop-src="models/scifi-scene.glb"
+            data-mobile-src="models/scifi-scene-mobile.glb"
             alt="Dark sci-fi environment scene by Noble Donage"
             camera-controls
             enable-pan
@@ -113,12 +114,32 @@
         <div class="project-grid">
           <article class="project-tile">
             <div class="tile-media">
-              <img
-                class="model-preview"
-                src="assets/scifi-scene-preview.png"
-                alt="Rendered preview of SCIFI SCENE"
+              <model-viewer
+                class="project-viewer"
+                data-desktop-src="models/scifi-scene.glb"
+                alt="Interactive preview of SCIFI SCENE"
+                camera-controls
+                enable-pan
+                touch-action="pan-y"
+                interaction-prompt="none"
+                auto-rotate
+                auto-rotate-delay="1800"
+                rotation-per-second="10deg"
+                camera-orbit="-30deg 68deg 240%"
+                field-of-view="42deg"
+                min-camera-orbit="auto auto 120%"
+                max-camera-orbit="auto auto 920%"
+                bounds="tight"
+                environment-image="neutral"
+                exposure="0.7"
+                tone-mapping="aces"
                 loading="lazy"
-              />
+                reveal="auto"
+              ></model-viewer>
+              <div class="mobile-inspection">
+                <p>3D inspection opens in the main viewer on mobile.</p>
+                <a class="button secondary" href="#top">Inspect Model</a>
+              </div>
             </div>
             <div class="tile-content">
               <p class="project-type">Environment / Scene</p>

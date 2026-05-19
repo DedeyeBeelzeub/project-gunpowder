@@ -21,6 +21,10 @@ http://localhost:4173
 - `site.js` - camera controls and loading state
 - `models/scifi-scene.glb` - current featured 3D model
 
+Optional mobile model:
+
+- `models/scifi-scene-mobile.glb` - if present, the main mobile viewer will use this lighter file automatically
+
 ## Hosting
 
 This can deploy as a static site on Cloudflare Pages, Vercel, Netlify, or GitHub Pages. The current model is about 15.5 MB, so it is small enough for a first pass on most static hosts.
