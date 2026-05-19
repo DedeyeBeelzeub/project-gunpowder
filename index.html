@@ -9,12 +9,12 @@
     />
     <title>Noble Donage | 3D Portfolio</title>
     <link rel="preconnect" href="https://ajax.googleapis.com" />
-    <link rel="stylesheet" href="styles.css?v=6" />
+    <link rel="stylesheet" href="styles.css?v=7" />
     <script
       type="module"
       src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"
     ></script>
-    <script src="site.js?v=2" defer></script>
+    <script src="site.js?v=3" defer></script>
   </head>
   <body>
     <header class="site-header" aria-label="Primary">
@@ -112,28 +112,10 @@
         </div>
         <div class="project-grid">
           <article class="project-tile">
-            <div class="tile-media">
-              <model-viewer
-                src="models/scifi-scene.glb"
-                alt="Preview of SCIFI SCENE"
-                camera-controls
-                enable-pan
-                touch-action="pan-y"
-                interaction-prompt="none"
-                auto-rotate
-                auto-rotate-delay="1800"
-                rotation-per-second="10deg"
-                camera-orbit="-30deg 68deg 240%"
-                field-of-view="42deg"
-                min-camera-orbit="auto auto 120%"
-                max-camera-orbit="auto auto 920%"
-                bounds="tight"
-                environment-image="neutral"
-                exposure="0.7"
-                tone-mapping="aces"
-                loading="lazy"
-                reveal="auto"
-              ></model-viewer>
+            <div class="tile-media" aria-hidden="true">
+              <div class="model-still">
+                <span></span>
+              </div>
             </div>
             <div class="tile-content">
               <p class="project-type">Environment / Scene</p>

@@ -415,10 +415,61 @@ body.is-loaded .load-track {
 }
 
 .tile-media {
+  position: relative;
   min-height: 420px;
+  overflow: hidden;
   background:
     linear-gradient(180deg, rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.48)),
     var(--black);
+}
+
+.model-still {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background:
+    linear-gradient(180deg, rgba(212, 164, 63, 0.08), transparent 38%),
+    repeating-linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.035) 0,
+      rgba(255, 255, 255, 0.035) 1px,
+      transparent 1px,
+      transparent 9px
+    );
+}
+
+.model-still::before,
+.model-still::after,
+.model-still span {
+  display: block;
+  content: "";
+  background: linear-gradient(90deg, #85847e, #deddd4 48%, #74736d);
+  clip-path: polygon(18% 0, 82% 0, 92% 88%, 62% 100%, 38% 100%, 8% 88%);
+}
+
+.model-still::before {
+  width: min(132px, 22vw);
+  height: min(250px, 34vw);
+  box-shadow: 0 0 42px rgba(240, 238, 229, 0.08);
+  transform: perspective(600px) rotateX(10deg) rotateY(-14deg);
+}
+
+.model-still::after {
+  position: absolute;
+  width: min(210px, 36vw);
+  height: min(42px, 8vw);
+  opacity: 0.78;
+  transform: translateY(-12px) perspective(600px) rotateX(10deg) rotateY(-14deg);
+}
+
+.model-still span {
+  position: absolute;
+  width: min(56px, 10vw);
+  height: min(16px, 3.5vw);
+  background: #f2f0e7;
+  clip-path: polygon(18% 0, 100% 12%, 80% 100%, 0 88%);
+  transform: translate(-18px, -36px) perspective(600px) rotateX(10deg) rotateY(-14deg);
 }
 
 .tile-content {

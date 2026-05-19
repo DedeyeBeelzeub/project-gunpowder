@@ -10,6 +10,7 @@ const cameraPresets = {
 };
 
 const narrowViewport = window.matchMedia("(max-width: 700px)");
+const coarsePointer = window.matchMedia("(pointer: coarse)");
 let defaultOrbit = viewer?.getAttribute("camera-orbit") ?? cameraPresets.desktop[0];
 
 function setPressed(activeButton) {
@@ -36,8 +37,38 @@ function syncCameraPresets(shouldMoveCamera = false) {
   }
 }
 
+function syncPerformanceMode() {
+  if (!viewer) {
+    return;
+  }
+
+  const shouldReduceMotion = narrowViewport.matches || coarsePointer.matches;
+  viewer.toggleAttribute("auto-rotate", !shouldReduceMotion);
+  rotateButton?.setAttribute("aria-pressed", String(!shouldReduceMotion));
+
+  if (shouldReduceMotion) {
+    viewer.setAttribute("shadow-intensity", "0");
+    viewer.setAttribute("exposure", "0.68");
+  } else {
+    viewer.setAttribute("shadow-intensity", "1");
+    viewer.setAttribute("exposure", "0.72");
+  }
+}
+
+function watchMediaQuery(mediaQuery, callback) {
+  if (typeof mediaQuery.addEventListener === "function") {
+    mediaQuery.addEventListener("change", callback);
+    return;
+  }
+
+  if (typeof mediaQuery.addListener === "function") {
+    mediaQuery.addListener(callback);
+  }
+}
+
 if (viewer) {
   syncCameraPresets(true);
+  syncPerformanceMode();
 
   viewer.addEventListener("progress", (event) => {
     const totalProgress = event.detail.totalProgress ?? 0;
@@ -77,5 +108,9 @@ if (viewer) {
     setPressed(orbitButtons[0]);
   });
 
-  narrowViewport.addEventListener("change", () => syncCameraPresets(true));
+  watchMediaQuery(narrowViewport, () => {
+    syncCameraPresets(true);
+    syncPerformanceMode();
+  });
+  watchMediaQuery(coarsePointer, syncPerformanceMode);
 }
