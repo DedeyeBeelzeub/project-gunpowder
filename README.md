@@ -21,11 +21,15 @@ http://localhost:4173
 - `site.js` - camera controls and loading state
 - `models/scifi-scene.glb` - current featured 3D model
 - `models/ac.glb` - AC hard-surface model
+- `models/freedom-dorrito-ed.glb` - Freedom Dorrito experimental form
+- `models/x.glb` - X hard-surface symbol model
 
 Mobile model:
 
 - `models/scifi-scene-mobile.glb` - lighter phone version used automatically by the main mobile viewer
 - `models/ac-mobile.glb` - lighter phone version of the AC hard-surface model
+- `models/freedom-dorrito-ed-mobile.glb` - phone version of Freedom Dorrito
+- `models/x-mobile.glb` - phone version of X
 - `tools/make-mobile-glb.py` - rebuilds the mobile GLB by resizing embedded textures
 
 ## Hosting

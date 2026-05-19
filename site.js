@@ -1,5 +1,7 @@
 const viewer = document.querySelector("#scene-viewer");
-const projectViewers = [...document.querySelectorAll(".project-viewer")];
+const projects = window.PORTFOLIO_PROJECTS ?? [];
+const projectGrid = document.querySelector("#project-grid");
+let projectViewers = [];
 const progress = document.querySelector("#load-progress");
 const orbitButtons = [...document.querySelectorAll("[data-orbit]")];
 const rotateButton = document.querySelector("#toggle-rotate");
@@ -14,6 +16,79 @@ const narrowViewport = window.matchMedia("(max-width: 700px)");
 const coarsePointer = window.matchMedia("(pointer: coarse)");
 let defaultOrbit = viewer?.getAttribute("camera-orbit") ?? cameraPresets.desktop[0];
 const sourceAvailability = new Map();
+
+function escapeHtml(value) {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+function detailHref(project) {
+  return `project.html?id=${encodeURIComponent(project.id)}`;
+}
+
+function projectCard(project) {
+  const href = detailHref(project);
+  return `
+    <article class="project-tile" data-project-id="${escapeHtml(project.id)}">
+      <div class="tile-media">
+        <model-viewer
+          class="project-viewer"
+          data-desktop-src="${escapeHtml(project.desktopSrc)}"
+          data-mobile-src="${escapeHtml(project.mobileSrc)}"
+          data-mobile-gallery="defer"
+          alt="Interactive preview of ${escapeHtml(project.title)}"
+          camera-controls
+          enable-pan
+          touch-action="pan-y"
+          interaction-prompt="none"
+          auto-rotate
+          auto-rotate-delay="1800"
+          rotation-per-second="10deg"
+          camera-orbit="${escapeHtml(project.cardOrbit)}"
+          field-of-view="42deg"
+          min-camera-orbit="auto auto 120%"
+          max-camera-orbit="auto auto 920%"
+          bounds="tight"
+          environment-image="neutral"
+          exposure="0.7"
+          tone-mapping="aces"
+          loading="lazy"
+          reveal="auto"
+        ></model-viewer>
+        <a class="tile-open-link" href="${href}">Open inspection</a>
+      </div>
+      <div class="tile-content">
+        <p class="project-type">${escapeHtml(project.category)}</p>
+        <h3><a href="${href}">${escapeHtml(project.title)}</a></h3>
+        <p>${escapeHtml(project.summary)}</p>
+        <dl class="project-meta">
+          <div>
+            <dt>Desktop</dt>
+            <dd>${escapeHtml(project.desktopSize)}</dd>
+          </div>
+          <div>
+            <dt>Mobile</dt>
+            <dd>${escapeHtml(project.mobileSize)}</dd>
+          </div>
+        </dl>
+      </div>
+    </article>
+  `;
+}
+
+function renderProjects() {
+  if (!projectGrid || projects.length === 0) {
+    projectViewers = [...document.querySelectorAll(".project-viewer")];
+    return;
+  }
+
+  projectGrid.innerHTML = projects.map(projectCard).join("");
+  projectViewers = [...document.querySelectorAll(".project-viewer")];
+}
 
 async function sourceExists(url) {
   if (!url) {
@@ -59,8 +134,13 @@ async function applyResponsiveSources() {
       const desktopSrc = projectViewer.dataset.desktopSrc;
       const mobileSrc = projectViewer.dataset.mobileSrc;
       const shouldUseMobile = narrowViewport.matches || coarsePointer.matches;
+      const shouldLoadMobile = projectViewer.dataset.mobileGallery === "load";
       const nextSrc =
-        shouldUseMobile && (await sourceExists(mobileSrc)) ? mobileSrc : shouldUseMobile ? "" : desktopSrc;
+        shouldUseMobile && shouldLoadMobile && (await sourceExists(mobileSrc))
+          ? mobileSrc
+          : shouldUseMobile
+            ? ""
+            : desktopSrc;
       const tileMedia = projectViewer.closest(".tile-media");
 
       if (nextSrc && projectViewer.getAttribute("src") !== nextSrc) {
@@ -129,6 +209,7 @@ function watchMediaQuery(mediaQuery, callback) {
 }
 
 if (viewer) {
+  renderProjects();
   applyResponsiveSources();
   syncCameraPresets(true);
   syncPerformanceMode();

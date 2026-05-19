@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Full-screen interactive 3D model inspection from the Project Gunpowder portfolio."
+    />
+    <title>Project Gunpowder | Model Detail</title>
+    <link rel="preconnect" href="https://ajax.googleapis.com" />
+    <link rel="stylesheet" href="styles.css?v=12" />
+    <script
+      type="module"
+      src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"
+    ></script>
+    <script src="projects.js?v=1" defer></script>
+    <script src="project.js?v=1" defer></script>
+  </head>
+  <body class="detail-page">
+    <header class="site-header" aria-label="Primary">
+      <a class="brand" href="index.html#top" aria-label="Project Gunpowder home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>Noble Donage</span>
+      </a>
+      <nav class="site-nav">
+        <a href="index.html#work">Work</a>
+        <a href="index.html#profile">Profile</a>
+        <a href="mailto:noble.donage@gmail.com">Contact</a>
+      </nav>
+    </header>
+
+    <main class="detail-shell">
+      <section class="detail-stage" aria-labelledby="detail-title">
+        <div class="detail-viewer-wrap" aria-label="Full-screen 3D model viewer">
+          <model-viewer
+            id="detail-viewer"
+            camera-controls
+            enable-pan
+            auto-rotate
+            auto-rotate-delay="2200"
+            rotation-per-second="12deg"
+            touch-action="pan-y"
+            interaction-prompt="none"
+            environment-image="neutral"
+            shadow-intensity="1"
+            shadow-softness="0.9"
+            exposure="0.72"
+            tone-mapping="aces"
+            field-of-view="42deg"
+            min-camera-orbit="auto auto 80%"
+            max-camera-orbit="auto auto 920%"
+            bounds="tight"
+            loading="eager"
+            reveal="auto"
+          ></model-viewer>
+          <div class="scene-vignette" aria-hidden="true"></div>
+          <div class="scanlines" aria-hidden="true"></div>
+        </div>
+
+        <aside class="detail-panel">
+          <a class="back-link" href="index.html#work">Back to Work</a>
+          <p class="eyebrow" id="detail-category">Model</p>
+          <h1 id="detail-title">Loading Model</h1>
+          <p id="detail-summary">
+            Preparing interactive inspection.
+          </p>
+
+          <dl class="detail-specs" aria-label="Model details">
+            <div>
+              <dt>Format</dt>
+              <dd id="detail-format">GLB</dd>
+            </div>
+            <div>
+              <dt>Desktop</dt>
+              <dd id="detail-desktop-size">-</dd>
+            </div>
+            <div>
+              <dt>Mobile</dt>
+              <dd id="detail-mobile-size">-</dd>
+            </div>
+            <div>
+              <dt>Mood</dt>
+              <dd id="detail-mood">-</dd>
+            </div>
+          </dl>
+
+          <div class="detail-actions">
+            <a class="button primary" href="mailto:noble.donage@gmail.com">Contact</a>
+            <a class="button secondary" href="index.html#work">More Models</a>
+          </div>
+        </aside>
+      </section>
+
+      <section class="detail-copy" aria-labelledby="detail-notes-title">
+        <p class="eyebrow">Project Notes</p>
+        <h2 id="detail-notes-title">Inspection Notes</h2>
+        <p id="detail-description">
+          This model is part of the realtime portfolio collection.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>

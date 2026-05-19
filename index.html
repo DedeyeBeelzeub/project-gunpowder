@@ -9,12 +9,13 @@
     />
     <title>Noble Donage | 3D Portfolio</title>
     <link rel="preconnect" href="https://ajax.googleapis.com" />
-    <link rel="stylesheet" href="styles.css?v=11" />
+    <link rel="stylesheet" href="styles.css?v=12" />
     <script
       type="module"
       src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"
     ></script>
-    <script src="site.js?v=7" defer></script>
+    <script src="projects.js?v=1" defer></script>
+    <script src="site.js?v=8" defer></script>
   </head>
   <body>
     <header class="site-header" aria-label="Primary">
@@ -113,102 +114,10 @@
             <h2 id="work-title">Interactive Work</h2>
           </div>
           <p class="section-note">
-            Rotate, pan, and inspect each model directly in the browser.
+            Open a card for full-screen inspection; desktop previews can rotate in place.
           </p>
         </div>
-        <div class="project-grid">
-          <article class="project-tile">
-            <div class="tile-media">
-              <model-viewer
-                class="project-viewer"
-                data-desktop-src="models/scifi-scene.glb"
-                data-mobile-src="models/scifi-scene-mobile.glb"
-                alt="Interactive preview of SCIFI SCENE"
-                camera-controls
-                enable-pan
-                touch-action="pan-y"
-                interaction-prompt="none"
-                auto-rotate
-                auto-rotate-delay="1800"
-                rotation-per-second="10deg"
-                camera-orbit="-30deg 68deg 240%"
-                field-of-view="42deg"
-                min-camera-orbit="auto auto 120%"
-                max-camera-orbit="auto auto 920%"
-                bounds="tight"
-                environment-image="neutral"
-                exposure="0.7"
-                tone-mapping="aces"
-                loading="lazy"
-                reveal="auto"
-              ></model-viewer>
-            </div>
-            <div class="tile-content">
-              <p class="project-type">Environment / Scene</p>
-              <h3>SCIFI SCENE</h3>
-              <p>
-                A dark industrial showcase piece presented as a realtime browser
-                model for portfolio review.
-              </p>
-              <dl class="project-meta">
-                <div>
-                  <dt>Desktop</dt>
-                  <dd>15.5 MB</dd>
-                </div>
-                <div>
-                  <dt>Mobile</dt>
-                  <dd>Optimized</dd>
-                </div>
-              </dl>
-            </div>
-          </article>
-
-          <article class="project-tile">
-            <div class="tile-media">
-              <model-viewer
-                class="project-viewer"
-                data-desktop-src="models/ac.glb"
-                data-mobile-src="models/ac-mobile.glb"
-                alt="Interactive preview of AC model"
-                camera-controls
-                enable-pan
-                touch-action="pan-y"
-                interaction-prompt="none"
-                auto-rotate
-                auto-rotate-delay="1800"
-                rotation-per-second="10deg"
-                camera-orbit="-30deg 68deg 240%"
-                field-of-view="42deg"
-                min-camera-orbit="auto auto 120%"
-                max-camera-orbit="auto auto 920%"
-                bounds="tight"
-                environment-image="neutral"
-                exposure="0.7"
-                tone-mapping="aces"
-                loading="lazy"
-                reveal="auto"
-              ></model-viewer>
-            </div>
-            <div class="tile-content">
-              <p class="project-type">Hard Surface / Asset</p>
-              <h3>AC MODEL</h3>
-              <p>
-                A hard-surface asset added to the portfolio index with separate
-                desktop and mobile-ready GLB files.
-              </p>
-              <dl class="project-meta">
-                <div>
-                  <dt>Desktop</dt>
-                  <dd>14.6 MB</dd>
-                </div>
-                <div>
-                  <dt>Mobile</dt>
-                  <dd>5.9 MB</dd>
-                </div>
-              </dl>
-            </div>
-          </article>
-        </div>
+        <div class="project-grid" id="project-grid"></div>
       </section>
 
       <section class="profile-section" id="profile" aria-labelledby="profile-title">
