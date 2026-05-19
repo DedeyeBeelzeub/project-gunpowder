@@ -19,6 +19,7 @@ http://localhost:4173
 - `index.html` - static portfolio page
 - `styles.css` - visual system and responsive layout
 - `site.js` - camera controls and loading state
+- `ROADMAP.md` - future portfolio structure notes
 - `models/scifi-scene.glb` - current featured 3D model
 - `models/ac.glb` - AC hard-surface model
 - `models/freedom-dorrito-ed.glb` - Freedom Dorrito experimental form
