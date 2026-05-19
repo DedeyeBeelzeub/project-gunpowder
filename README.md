@@ -21,9 +21,10 @@ http://localhost:4173
 - `site.js` - camera controls and loading state
 - `models/scifi-scene.glb` - current featured 3D model
 
-Optional mobile model:
+Mobile model:
 
-- `models/scifi-scene-mobile.glb` - if present, the main mobile viewer will use this lighter file automatically
+- `models/scifi-scene-mobile.glb` - lighter phone version used automatically by the main mobile viewer
+- `tools/make-mobile-glb.py` - rebuilds the mobile GLB by resizing embedded textures
 
 ## Hosting
 
