@@ -94,5 +94,21 @@ window.PORTFOLIO_PROJECTS = [
     summary: "A larger sci-fi vehicle model presented as a dedicated inspection asset.",
     description:
       "A heavier spacecraft model built for full-screen inspection. Because this file is geometry-heavy rather than texture-heavy, the detail page presents it as a focused model view instead of loading it into the mobile gallery."
+  },
+  {
+    id: "citadel",
+    title: "CITADEL",
+    category: "Environment / Structure",
+    desktopSrc: "models/citadel.glb",
+    mobileSrc: "models/citadel-mobile.glb",
+    desktopSize: "4.5 MB",
+    mobileSize: "4.5 MB",
+    format: "GLB",
+    mood: "Fortress study",
+    cardOrbit: "-30deg 66deg 260%",
+    detailOrbit: "-30deg 64deg 300%",
+    summary: "A midweight fortress-style structure model prepared for realtime inspection.",
+    description:
+      "A structural sci-fi study with enough detail for close inspection while staying light enough for web delivery. The detail page keeps the model centered as a dedicated realtime asset."
   }
 ];
