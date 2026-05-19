@@ -9,12 +9,12 @@
     />
     <title>Noble Donage | 3D Portfolio</title>
     <link rel="preconnect" href="https://ajax.googleapis.com" />
-    <link rel="stylesheet" href="styles.css?v=9" />
+    <link rel="stylesheet" href="styles.css?v=10" />
     <script
       type="module"
       src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"
     ></script>
-    <script src="site.js?v=5" defer></script>
+    <script src="site.js?v=6" defer></script>
   </head>
   <body>
     <header class="site-header" aria-label="Primary">
@@ -117,6 +117,7 @@
               <model-viewer
                 class="project-viewer"
                 data-desktop-src="models/scifi-scene.glb"
+                data-mobile-src="models/scifi-scene-mobile.glb"
                 alt="Interactive preview of SCIFI SCENE"
                 camera-controls
                 enable-pan
@@ -136,10 +137,6 @@
                 loading="lazy"
                 reveal="auto"
               ></model-viewer>
-              <div class="mobile-inspection">
-                <p>3D inspection opens in the main viewer on mobile.</p>
-                <a class="button secondary" href="#top">Inspect Model</a>
-              </div>
             </div>
             <div class="tile-content">
               <p class="project-type">Environment / Scene</p>

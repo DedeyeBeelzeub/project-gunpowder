@@ -54,18 +54,26 @@ async function applyResponsiveSources() {
     }
   }
 
-  projectViewers.forEach((projectViewer) => {
-    const shouldLoad = !narrowViewport.matches && !coarsePointer.matches;
-    const desktopSrc = projectViewer.dataset.desktopSrc;
+  await Promise.all(
+    projectViewers.map(async (projectViewer) => {
+      const desktopSrc = projectViewer.dataset.desktopSrc;
+      const mobileSrc = projectViewer.dataset.mobileSrc;
+      const shouldUseMobile = narrowViewport.matches || coarsePointer.matches;
+      const nextSrc =
+        shouldUseMobile && (await sourceExists(mobileSrc)) ? mobileSrc : shouldUseMobile ? "" : desktopSrc;
+      const tileMedia = projectViewer.closest(".tile-media");
 
-    if (shouldLoad && desktopSrc && projectViewer.getAttribute("src") !== desktopSrc) {
-      projectViewer.setAttribute("src", desktopSrc);
-    }
+      if (nextSrc && projectViewer.getAttribute("src") !== nextSrc) {
+        projectViewer.setAttribute("src", nextSrc);
+      }
 
-    if (!shouldLoad && projectViewer.hasAttribute("src")) {
-      projectViewer.removeAttribute("src");
-    }
-  });
+      if (!nextSrc && projectViewer.hasAttribute("src")) {
+        projectViewer.removeAttribute("src");
+      }
+
+      tileMedia?.classList.toggle("has-live-viewer", Boolean(nextSrc));
+    })
+  );
 }
 
 function setPressed(activeButton) {
@@ -98,16 +106,15 @@ function syncPerformanceMode() {
   }
 
   const shouldReduceMotion = narrowViewport.matches || coarsePointer.matches;
-  viewer.toggleAttribute("auto-rotate", !shouldReduceMotion);
-  rotateButton?.setAttribute("aria-pressed", String(!shouldReduceMotion));
+  const allViewers = [viewer, ...projectViewers].filter(Boolean);
 
-  if (shouldReduceMotion) {
-    viewer.setAttribute("shadow-intensity", "0");
-    viewer.setAttribute("exposure", "0.68");
-  } else {
-    viewer.setAttribute("shadow-intensity", "1");
-    viewer.setAttribute("exposure", "0.72");
-  }
+  allViewers.forEach((modelViewer) => {
+    modelViewer.toggleAttribute("auto-rotate", !shouldReduceMotion);
+    modelViewer.setAttribute("shadow-intensity", shouldReduceMotion ? "0" : "1");
+    modelViewer.setAttribute("exposure", shouldReduceMotion ? "0.68" : modelViewer === viewer ? "0.72" : "0.7");
+  });
+
+  rotateButton?.setAttribute("aria-pressed", String(!shouldReduceMotion));
 }
 
 function watchMediaQuery(mediaQuery, callback) {
