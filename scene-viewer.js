@@ -14,6 +14,7 @@ const loadText = document.querySelector("#scene-load-text");
 const loadProgress = document.querySelector("#scene-load-progress");
 const explodeRange = document.querySelector("#explode-range");
 const lightRange = document.querySelector("#light-range");
+const materialToggleButton = document.querySelector("#material-toggle");
 const isolateButton = document.querySelector("#scene-isolate");
 const resetButton = document.querySelector("#scene-reset");
 const partList = document.querySelector("#scene-part-list");
@@ -52,11 +53,15 @@ const assembly = new THREE.Group();
 scene.add(assembly);
 
 const baseLightLevels = {
-  fill: 1.45,
-  key: 3.2,
-  rim: 1.4,
-  exposure: 0.88,
+  ambient: 0.85,
+  fill: 2.05,
+  key: 4.6,
+  rim: 2.2,
+  exposure: 1.12,
 };
+
+const ambientLight = new THREE.AmbientLight(0xf0ead8, baseLightLevels.ambient);
+scene.add(ambientLight);
 
 const fillLight = new THREE.HemisphereLight(0xd8d2bd, 0x17120d, baseLightLevels.fill);
 scene.add(fillLight);
@@ -68,6 +73,12 @@ scene.add(keyLight);
 const rimLight = new THREE.DirectionalLight(0x98b58e, baseLightLevels.rim);
 rimLight.position.set(-18, 10, -20);
 scene.add(rimLight);
+
+const clayMaterial = new THREE.MeshStandardMaterial({
+  color: 0xc9c1ad,
+  roughness: 0.78,
+  metalness: 0.02,
+});
 
 const grid = new THREE.GridHelper(80, 80, 0x3b3424, 0x15130f);
 grid.material.transparent = true;
@@ -86,6 +97,7 @@ let manifest = null;
 let sceneCenter = new THREE.Vector3();
 let sceneRadius = 20;
 let isolateMode = false;
+let clayMode = false;
 
 function formatBytes(bytes) {
   if (!Number.isFinite(bytes) || bytes <= 0) {
@@ -265,14 +277,25 @@ function setActivePartButton(part) {
   });
 }
 
+function materialForMode(object) {
+  return clayMode ? clayMaterial : object.userData.originalMaterial;
+}
+
+function restoreObjectMaterial(object) {
+  const material = materialForMode(object);
+  if (material) {
+    object.material = material;
+  }
+}
+
 function clearSelectionMaterial() {
   if (!selectedPart) {
     return;
   }
 
   selectedPart.group.traverse((object) => {
-    if (object.isMesh && object.userData.originalMaterial) {
-      object.material = object.userData.originalMaterial;
+    if (object.isMesh) {
+      restoreObjectMaterial(object);
     }
   });
 }
@@ -295,6 +318,24 @@ function applySelectionMaterial(part) {
     });
     object.material = Array.isArray(object.material) ? highlighted : highlighted[0];
   });
+}
+
+function applyMaterialMode() {
+  clearSelectionMaterial();
+
+  partGroups.forEach((part) => {
+    part.group?.traverse((object) => {
+      if (object.isMesh) {
+        restoreObjectMaterial(object);
+      }
+    });
+  });
+
+  if (selectedPart) {
+    applySelectionMaterial(selectedPart);
+  }
+
+  materialToggleButton?.setAttribute("aria-pressed", String(clayMode));
 }
 
 function updateSelectionBox(part) {
@@ -356,10 +397,11 @@ function updateExplode() {
 
 function updateLighting() {
   const amount = Number(lightRange?.value ?? 100) / 100;
+  ambientLight.intensity = baseLightLevels.ambient * amount;
   fillLight.intensity = baseLightLevels.fill * amount;
   keyLight.intensity = baseLightLevels.key * amount;
   rimLight.intensity = baseLightLevels.rim * amount;
-  renderer.toneMappingExposure = baseLightLevels.exposure * (0.82 + amount * 0.18);
+  renderer.toneMappingExposure = baseLightLevels.exposure * (0.66 + amount * 0.34);
 }
 
 function resetScene() {
@@ -367,13 +409,15 @@ function resetScene() {
     explodeRange.value = "0";
   }
   if (lightRange) {
-    lightRange.value = "100";
+    lightRange.value = "160";
   }
   isolateMode = false;
+  clayMode = false;
   updateLighting();
   updateExplode();
   clearSelectionMaterial();
   selectedPart = null;
+  applyMaterialMode();
   updateSelectionBox(null);
   setActivePartButton(null);
   setText(selectedName, "None");
@@ -472,6 +516,7 @@ async function loadScene() {
   });
 
   renderScenePieceGrid();
+  applyMaterialMode();
   frameScene();
 }
 
@@ -486,6 +531,10 @@ function animate() {
 
 explodeRange?.addEventListener("input", updateExplode);
 lightRange?.addEventListener("input", updateLighting);
+materialToggleButton?.addEventListener("click", () => {
+  clayMode = !clayMode;
+  applyMaterialMode();
+});
 isolateButton?.addEventListener("click", () => {
   isolateMode = !isolateMode;
   syncIsolation();
@@ -495,6 +544,8 @@ renderer.domElement.addEventListener("click", pickPart);
 
 new ResizeObserver(resize).observe(canvasWrap ?? document.body);
 resize();
+updateLighting();
+applyMaterialMode();
 animate();
 
 loadScene().catch((error) => {

@@ -811,6 +811,16 @@ body.is-loaded .load-track {
     #030303;
 }
 
+.scene-canvas-wrap .scene-vignette {
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.28), transparent 28%, rgba(0, 0, 0, 0.42)),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.38), transparent 44%, rgba(0, 0, 0, 0.24));
+}
+
+.scene-canvas-wrap .scanlines {
+  opacity: 0.1;
+}
+
 .scene-canvas-wrap canvas {
   display: block;
   width: 100%;
@@ -962,10 +972,10 @@ body.is-loaded .load-track {
   top: 24px;
   z-index: 4;
   display: grid;
-  grid-template-columns: minmax(160px, 1fr) minmax(160px, 1fr) auto auto;
+  grid-template-columns: minmax(150px, 1fr) minmax(150px, 1fr) auto auto auto;
   align-items: center;
   gap: 8px;
-  max-width: 820px;
+  max-width: 920px;
   padding: 8px;
   border: 1px solid var(--line);
   border-radius: 6px;

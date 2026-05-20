@@ -9,7 +9,7 @@
     />
     <title>Project Gunpowder | Scene Inspector</title>
     <link rel="preconnect" href="https://cdn.jsdelivr.net" />
-    <link rel="stylesheet" href="styles.css?v=16" />
+    <link rel="stylesheet" href="styles.css?v=17" />
     <script type="importmap">
       {
         "imports": {
@@ -19,7 +19,7 @@
       }
     </script>
     <script src="projects.js?v=6" defer></script>
-    <script type="module" src="scene-viewer.js?v=3"></script>
+    <script type="module" src="scene-viewer.js?v=4"></script>
   </head>
   <body class="scene-page">
     <header class="site-header" aria-label="Primary">
@@ -53,8 +53,9 @@
             </label>
             <label class="scene-slider">
               <span>Light</span>
-              <input id="light-range" type="range" min="35" max="140" value="100" />
+              <input id="light-range" type="range" min="35" max="240" value="160" />
             </label>
+            <button type="button" id="material-toggle" aria-pressed="false">Clay</button>
             <button type="button" id="scene-isolate" aria-pressed="false">Isolate</button>
             <button type="button" id="scene-reset">Reset</button>
           </div>
