@@ -28,6 +28,7 @@ http://localhost:4173
 - `models/spaceship.glb` - SpaceShip sci-fi vehicle model
 - `models/citadel.glb` - Citadel structure model
 - `models/deathsphere.glb` - Deathsphere hard-surface artifact model
+- `models/gate-scene/manifest.json` - extracted multi-object Gate scene manifest
 
 Mobile model:
 
@@ -40,6 +41,7 @@ Mobile model:
 - `models/citadel-mobile.glb` - phone version of Citadel
 - `models/deathsphere-mobile.glb` - compressed phone version of Deathsphere
 - `tools/make-mobile-glb.py` - rebuilds the mobile GLB by resizing embedded textures
+- `tools/extract-glb-nodes.py` - extracts separate object GLBs and transforms from a multi-object GLB
 
 ## Hosting
 

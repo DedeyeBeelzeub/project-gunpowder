@@ -1,0 +1,927 @@
+{
+  "id": "gate-scene",
+  "name": "Gate Scene",
+  "source": "gate.glb",
+  "asset": {
+    "generator": "Khronos glTF Blender I/O v5.1.18",
+    "version": "2.0"
+  },
+  "partCount": 14,
+  "textureMaxSize": 1024,
+  "parts": [
+    {
+      "nodeIndex": 0,
+      "meshIndex": 0,
+      "name": "HOLDER_00",
+      "meshName": "Cube.028",
+      "transform": {
+        "translation": [
+          -34.71234893798828,
+          -1.5960464477539062,
+          57.186065673828125
+        ],
+        "rotation": [
+          0.7110702991485596,
+          0,
+          0,
+          0.7031209468841553
+        ]
+      },
+      "primitiveCount": 2,
+      "localBounds": {
+        "min": [
+          -1.566534399986267,
+          -1.5665342807769775,
+          -1.647269368171692
+        ],
+        "max": [
+          1.6167863607406616,
+          1.5665342807769775,
+          1.6386682987213135
+        ]
+      },
+      "id": "holder-00",
+      "src": "parts/holder-00.glb",
+      "bytes": 6626448,
+      "webImages": [
+        {
+          "originalSize": [
+            8192,
+            8192
+          ],
+          "resizedSize": [
+            1024,
+            1024
+          ],
+          "originalBytes": 8639944,
+          "webBytes": 52804,
+          "mimeType": "image/jpeg",
+          "name": "Poliigon_MetalSteelBrushed_7174_BaseColor"
+        },
+        {
+          "originalSize": [
+            8192,
+            8192
+          ],
+          "resizedSize": [
+            1024,
+            1024
+          ],
+          "originalBytes": 74028447,
+          "webBytes": 10031,
+          "mimeType": "image/jpeg",
+          "name": "Poliigon_MetalSteelBrushed_7174_Metallic-Poliigon_MetalSteelBrushed_7174_Roughness"
+        }
+      ]
+    },
+    {
+      "nodeIndex": 1,
+      "meshIndex": 1,
+      "name": "HOLDER_0000",
+      "meshName": "Cube.031",
+      "transform": {
+        "translation": [
+          -34.729774475097656,
+          -5.513121604919434,
+          57.174564361572266
+        ]
+      },
+      "primitiveCount": 1,
+      "localBounds": {
+        "min": [
+          -1.5581392049789429,
+          -1.5681390762329102,
+          -1.5581392049789429
+        ],
+        "max": [
+          1.6278046369552612,
+          1.5681053400039673,
+          1.5581392049789429
+        ]
+      },
+      "id": "holder-0000",
+      "src": "parts/holder-0000.glb",
+      "bytes": 3169844,
+      "webImages": [
+        {
+          "originalSize": [
+            8192,
+            8192
+          ],
+          "resizedSize": [
+            1024,
+            1024
+          ],
+          "originalBytes": 8639944,
+          "webBytes": 52804,
+          "mimeType": "image/jpeg",
+          "name": "Poliigon_MetalSteelBrushed_7174_BaseColor"
+        },
+        {
+          "originalSize": [
+            8192,
+            8192
+          ],
+          "resizedSize": [
+            1024,
+            1024
+          ],
+          "originalBytes": 74028447,
+          "webBytes": 10031,
+          "mimeType": "image/jpeg",
+          "name": "Poliigon_MetalSteelBrushed_7174_Metallic-Poliigon_MetalSteelBrushed_7174_Roughness"
+        }
+      ]
+    },
+    {
+      "nodeIndex": 2,
+      "meshIndex": 2,
+      "name": "FRAME_00",
+      "meshName": "Cube.035",
+      "transform": {
+        "translation": [
+          -36.518760681152344,
+          -0.12299394607543945,
+          57.097625732421875
+        ]
+      },
+      "primitiveCount": 1,
+      "localBounds": {
+        "min": [
+          -0.13200151920318604,
+          -6.9342451095581055,
+          -12.095335960388184
+        ],
+        "max": [
+          4.461406230926514,
+          6.8941755294799805,
+          12.095335960388184
+        ]
+      },
+      "id": "frame-00",
+      "src": "parts/frame-00.glb",
+      "bytes": 745536,
+      "webImages": [
+        {
+          "originalSize": [
+            8192,
+            8192
+          ],
+          "resizedSize": [
+            1024,
+            1024
+          ],
+          "originalBytes": 8639944,
+          "webBytes": 52804,
+          "mimeType": "image/jpeg",
+          "name": "Poliigon_MetalSteelBrushed_7174_BaseColor"
+        },
+        {
+          "originalSize": [
+            8192,
+            8192
+          ],
+          "resizedSize": [
+            1024,
+            1024
+          ],
+          "originalBytes": 74028447,
+          "webBytes": 10031,
+          "mimeType": "image/jpeg",
+          "name": "Poliigon_MetalSteelBrushed_7174_Metallic-Poliigon_MetalSteelBrushed_7174_Roughness"
+        }
+      ]
+    },
+    {
+      "nodeIndex": 3,
+      "meshIndex": 3,
+      "name": "COVER_111",
+      "meshName": "Cube.036",
+      "transform": {
+        "translation": [
+          -35.51641845703125,
+          1.9831056594848633,
+          57.033203125
+        ],
+        "rotation": [
+          0.7110702991485596,
+          0,
+          0,
+          0.7031209468841553
+        ]
+      },
+      "primitiveCount": 2,
+      "localBounds": {
+        "min": [
+          1.5549758672714233,
+          -1.0552600622177124,
+          -1.0348840951919556
+        ],
+        "max": [
+          1.6477622985839844,
+          1.0540378093719482,
+          1.0744138956069946
+        ]
+      },
+      "id": "cover-111",
+      "src": "parts/cover-111.glb",
+      "bytes": 100216,
+      "webImages": [
+        {
+          "originalSize": [
+            8192,
+            8192
+          ],
+          "resizedSize": [
+            1024,
+            1024
+          ],
+          "originalBytes": 8639944,
+          "webBytes": 52804,
+          "mimeType": "image/jpeg",
+          "name": "Poliigon_MetalSteelBrushed_7174_BaseColor"
+        },
+        {
+          "originalSize": [
+            8192,
+            8192
+          ],
+          "resizedSize": [
+            1024,
+            1024
+          ],
+          "originalBytes": 74028447,
+          "webBytes": 10031,
+          "mimeType": "image/jpeg",
+          "name": "Poliigon_MetalSteelBrushed_7174_Metallic-Poliigon_MetalSteelBrushed_7174_Roughness"
+        }
+      ]
+    },
+    {
+      "nodeIndex": 4,
+      "meshIndex": 4,
+      "name": "Cube.031",
+      "meshName": "Cube.037",
+      "transform": {
+        "translation": [
+          -34.514930725097656,
+          -1.8075428009033203,
+          61.966453552246094
+        ],
+        "rotation": [
+          -0.7071068286895752,
+          0,
+          0,
+          0.7071068286895752
+        ]
+      },
+      "primitiveCount": 1,
+      "localBounds": {
+        "min": [
+          -1.568175196647644,
+          -1.5681428909301758,
+          -1.568129301071167
+        ],
+        "max": [
+          1.6033751964569092,
+          1.5681397914886475,
+          1.568129301071167
+        ]
+      },
+      "id": "cube-031",
+      "src": "parts/cube-031.glb",
+      "bytes": 4047560,
+      "webImages": [
+        {
+          "originalSize": [
+            8192,
+            8192
+          ],
+          "resizedSize": [
+            1024,
+            1024
+          ],
+          "originalBytes": 8639944,
+          "webBytes": 52804,
+          "mimeType": "image/jpeg",
+          "name": "Poliigon_MetalSteelBrushed_7174_BaseColor"
+        },
+        {
+          "originalSize": [
+            8192,
+            8192
+          ],
+          "resizedSize": [
+            1024,
+            1024
+          ],
+          "originalBytes": 74028447,
+          "webBytes": 10031,
+          "mimeType": "image/jpeg",
+          "name": "Poliigon_MetalSteelBrushed_7174_Metallic-Poliigon_MetalSteelBrushed_7174_Roughness"
+        }
+      ]
+    },
+    {
+      "nodeIndex": 5,
+      "meshIndex": 5,
+      "name": "PIPE_00.001",
+      "meshName": "Cylinder.001",
+      "transform": {
+        "translation": [
+          -34.34591293334961,
+          -1.6882834434509277,
+          59.572303771972656
+        ],
+        "rotation": [
+          0.7071068286895752,
+          0,
+          0,
+          0.7071068286895752
+        ]
+      },
+      "primitiveCount": 1,
+      "localBounds": {
+        "min": [
+          -0.4642925560474396,
+          -0.8764403462409973,
+          -0.46429207921028137
+        ],
+        "max": [
+          0.46429243683815,
+          0.8764403462409973,
+          0.4642929136753082
+        ]
+      },
+      "id": "pipe-00-001",
+      "src": "parts/pipe-00-001.glb",
+      "bytes": 266804,
+      "webImages": [
+        {
+          "originalSize": [
+            8192,
+            8192
+          ],
+          "resizedSize": [
+            1024,
+            1024
+          ],
+          "originalBytes": 8639944,
+          "webBytes": 52804,
+          "mimeType": "image/jpeg",
+          "name": "Poliigon_MetalSteelBrushed_7174_BaseColor"
+        },
+        {
+          "originalSize": [
+            8192,
+            8192
+          ],
+          "resizedSize": [
+            1024,
+            1024
+          ],
+          "originalBytes": 74028447,
+          "webBytes": 10031,
+          "mimeType": "image/jpeg",
+          "name": "Poliigon_MetalSteelBrushed_7174_Metallic-Poliigon_MetalSteelBrushed_7174_Roughness"
+        }
+      ]
+    },
+    {
+      "nodeIndex": 6,
+      "meshIndex": 6,
+      "name": "COVER_00",
+      "meshName": "Cube.038",
+      "transform": {
+        "translation": [
+          -35.67743682861328,
+          1.9615859985351562,
+          62.343162536621094
+        ],
+        "rotation": [
+          -0.7071068286895752,
+          0,
+          0,
+          0.7071068286895752
+        ]
+      },
+      "primitiveCount": 1,
+      "localBounds": {
+        "min": [
+          1.5581390857696533,
+          -1.5581388473510742,
+          -1.2578775882720947
+        ],
+        "max": [
+          1.7175532579421997,
+          1.5581390857696533,
+          1.2578775882720947
+        ]
+      },
+      "id": "cover-00",
+      "src": "parts/cover-00.glb",
+      "bytes": 899244,
+      "webImages": [
+        {
+          "originalSize": [
+            8192,
+            8192
+          ],
+          "resizedSize": [
+            1024,
+            1024
+          ],
+          "originalBytes": 8639944,
+          "webBytes": 52804,
+          "mimeType": "image/jpeg",
+          "name": "Poliigon_MetalSteelBrushed_7174_BaseColor"
+        },
+        {
+          "originalSize": [
+            8192,
+            8192
+          ],
+          "resizedSize": [
+            1024,
+            1024
+          ],
+          "originalBytes": 74028447,
+          "webBytes": 10031,
+          "mimeType": "image/jpeg",
+          "name": "Poliigon_MetalSteelBrushed_7174_Metallic-Poliigon_MetalSteelBrushed_7174_Roughness"
+        }
+      ]
+    },
+    {
+      "nodeIndex": 7,
+      "meshIndex": 7,
+      "name": "COVER_01",
+      "meshName": "Cube.039",
+      "transform": {
+        "translation": [
+          -36.73790740966797,
+          -0.3577404022216797,
+          57.11050033569336
+        ]
+      },
+      "primitiveCount": 1,
+      "localBounds": {
+        "min": [
+          1.200402855873108,
+          -6.894176483154297,
+          -7.850917816162109
+        ],
+        "max": [
+          7.987231254577637,
+          7.684032440185547,
+          7.850917816162109
+        ]
+      },
+      "id": "cover-01",
+      "src": "parts/cover-01.glb",
+      "bytes": 9107400,
+      "webImages": [
+        {
+          "originalSize": [
+            8192,
+            8192
+          ],
+          "resizedSize": [
+            1024,
+            1024
+          ],
+          "originalBytes": 8639944,
+          "webBytes": 52804,
+          "mimeType": "image/jpeg",
+          "name": "Poliigon_MetalSteelBrushed_7174_BaseColor"
+        },
+        {
+          "originalSize": [
+            8192,
+            8192
+          ],
+          "resizedSize": [
+            1024,
+            1024
+          ],
+          "originalBytes": 74028447,
+          "webBytes": 10031,
+          "mimeType": "image/jpeg",
+          "name": "Poliigon_MetalSteelBrushed_7174_Metallic-Poliigon_MetalSteelBrushed_7174_Roughness"
+        }
+      ]
+    },
+    {
+      "nodeIndex": 8,
+      "meshIndex": 8,
+      "name": "CABLE_LEFT",
+      "meshName": "Cylinder.011",
+      "transform": {
+        "translation": [
+          -22.723487854003906,
+          -7.1357526779174805,
+          53.11067199707031
+        ]
+      },
+      "primitiveCount": 2,
+      "localBounds": {
+        "min": [
+          -12.193984031677246,
+          1.1291576623916626,
+          5.431107997894287
+        ],
+        "max": [
+          -10.90280532836914,
+          3.9429309368133545,
+          9.590142250061035
+        ]
+      },
+      "id": "cable-left",
+      "src": "parts/cable-left.glb",
+      "bytes": 4157284,
+      "webImages": [
+        {
+          "originalSize": [
+            4096,
+            4096
+          ],
+          "resizedSize": [
+            1024,
+            1024
+          ],
+          "originalBytes": 5286479,
+          "webBytes": 8475,
+          "mimeType": "image/jpeg",
+          "name": "FabricLeatherCowhide001_COL_VAR1_4K"
+        },
+        {
+          "originalSize": [
+            8192,
+            8192
+          ],
+          "resizedSize": [
+            1024,
+            1024
+          ],
+          "originalBytes": 8639944,
+          "webBytes": 52804,
+          "mimeType": "image/jpeg",
+          "name": "Poliigon_MetalSteelBrushed_7174_BaseColor"
+        },
+        {
+          "originalSize": [
+            8192,
+            8192
+          ],
+          "resizedSize": [
+            1024,
+            1024
+          ],
+          "originalBytes": 74028447,
+          "webBytes": 10031,
+          "mimeType": "image/jpeg",
+          "name": "Poliigon_MetalSteelBrushed_7174_Metallic-Poliigon_MetalSteelBrushed_7174_Roughness"
+        }
+      ]
+    },
+    {
+      "nodeIndex": 9,
+      "meshIndex": 9,
+      "name": "CABLE_RIGHT",
+      "meshName": "Cylinder.019",
+      "transform": {
+        "translation": [
+          -45.95500183105469,
+          -7.1357526779174805,
+          54.060611724853516
+        ],
+        "rotation": [
+          0,
+          -0.9999857544898987,
+          0,
+          0.005338123068213463
+        ]
+      },
+      "primitiveCount": 2,
+      "localBounds": {
+        "min": [
+          -12.224312782287598,
+          1.1291576623916626,
+          -1.7616043090820312
+        ],
+        "max": [
+          -10.933134078979492,
+          3.9429309368133545,
+          2.397429943084717
+        ]
+      },
+      "id": "cable-right",
+      "src": "parts/cable-right.glb",
+      "bytes": 4157288,
+      "webImages": [
+        {
+          "originalSize": [
+            4096,
+            4096
+          ],
+          "resizedSize": [
+            1024,
+            1024
+          ],
+          "originalBytes": 5286479,
+          "webBytes": 8475,
+          "mimeType": "image/jpeg",
+          "name": "FabricLeatherCowhide001_COL_VAR1_4K"
+        },
+        {
+          "originalSize": [
+            8192,
+            8192
+          ],
+          "resizedSize": [
+            1024,
+            1024
+          ],
+          "originalBytes": 8639944,
+          "webBytes": 52804,
+          "mimeType": "image/jpeg",
+          "name": "Poliigon_MetalSteelBrushed_7174_BaseColor"
+        },
+        {
+          "originalSize": [
+            8192,
+            8192
+          ],
+          "resizedSize": [
+            1024,
+            1024
+          ],
+          "originalBytes": 74028447,
+          "webBytes": 10031,
+          "mimeType": "image/jpeg",
+          "name": "Poliigon_MetalSteelBrushed_7174_Metallic-Poliigon_MetalSteelBrushed_7174_Roughness"
+        }
+      ]
+    },
+    {
+      "nodeIndex": 10,
+      "meshIndex": 10,
+      "name": "PIPE_00",
+      "meshName": "Cylinder.029",
+      "transform": {
+        "translation": [
+          -34.34591293334961,
+          -1.6882834434509277,
+          54.752784729003906
+        ],
+        "rotation": [
+          0.7071068286895752,
+          0,
+          0,
+          0.7071068286895752
+        ]
+      },
+      "primitiveCount": 1,
+      "localBounds": {
+        "min": [
+          -0.4642925560474396,
+          -0.8764403462409973,
+          -0.46429207921028137
+        ],
+        "max": [
+          0.46429243683815,
+          0.8764403462409973,
+          0.4642929136753082
+        ]
+      },
+      "id": "pipe-00",
+      "src": "parts/pipe-00.glb",
+      "bytes": 266800,
+      "webImages": [
+        {
+          "originalSize": [
+            8192,
+            8192
+          ],
+          "resizedSize": [
+            1024,
+            1024
+          ],
+          "originalBytes": 8639944,
+          "webBytes": 52804,
+          "mimeType": "image/jpeg",
+          "name": "Poliigon_MetalSteelBrushed_7174_BaseColor"
+        },
+        {
+          "originalSize": [
+            8192,
+            8192
+          ],
+          "resizedSize": [
+            1024,
+            1024
+          ],
+          "originalBytes": 74028447,
+          "webBytes": 10031,
+          "mimeType": "image/jpeg",
+          "name": "Poliigon_MetalSteelBrushed_7174_Metallic-Poliigon_MetalSteelBrushed_7174_Roughness"
+        }
+      ]
+    },
+    {
+      "nodeIndex": 11,
+      "meshIndex": 11,
+      "name": "Cube.036",
+      "meshName": "Cube.040",
+      "transform": {
+        "translation": [
+          -34.514930725097656,
+          -1.8075428009033203,
+          52.35686492919922
+        ],
+        "rotation": [
+          -0.7071068286895752,
+          0,
+          0,
+          0.7071068286895752
+        ]
+      },
+      "primitiveCount": 1,
+      "localBounds": {
+        "min": [
+          -1.568175196647644,
+          -1.5681428909301758,
+          -1.568129301071167
+        ],
+        "max": [
+          1.6033751964569092,
+          1.5681397914886475,
+          1.568129301071167
+        ]
+      },
+      "id": "cube-036",
+      "src": "parts/cube-036.glb",
+      "bytes": 4047560,
+      "webImages": [
+        {
+          "originalSize": [
+            8192,
+            8192
+          ],
+          "resizedSize": [
+            1024,
+            1024
+          ],
+          "originalBytes": 8639944,
+          "webBytes": 52804,
+          "mimeType": "image/jpeg",
+          "name": "Poliigon_MetalSteelBrushed_7174_BaseColor"
+        },
+        {
+          "originalSize": [
+            8192,
+            8192
+          ],
+          "resizedSize": [
+            1024,
+            1024
+          ],
+          "originalBytes": 74028447,
+          "webBytes": 10031,
+          "mimeType": "image/jpeg",
+          "name": "Poliigon_MetalSteelBrushed_7174_Metallic-Poliigon_MetalSteelBrushed_7174_Roughness"
+        }
+      ]
+    },
+    {
+      "nodeIndex": 12,
+      "meshIndex": 12,
+      "name": "COVER_00.001",
+      "meshName": "Cube.041",
+      "transform": {
+        "translation": [
+          -35.529422760009766,
+          1.992086410522461,
+          52.27847671508789
+        ],
+        "rotation": [
+          -0.7071068286895752,
+          0,
+          0,
+          0.7071068286895752
+        ]
+      },
+      "primitiveCount": 1,
+      "localBounds": {
+        "min": [
+          1.5581390857696533,
+          -1.5581388473510742,
+          -1.2578775882720947
+        ],
+        "max": [
+          1.7175532579421997,
+          1.5581390857696533,
+          1.2578775882720947
+        ]
+      },
+      "id": "cover-00-001",
+      "src": "parts/cover-00-001.glb",
+      "bytes": 899248,
+      "webImages": [
+        {
+          "originalSize": [
+            8192,
+            8192
+          ],
+          "resizedSize": [
+            1024,
+            1024
+          ],
+          "originalBytes": 8639944,
+          "webBytes": 52804,
+          "mimeType": "image/jpeg",
+          "name": "Poliigon_MetalSteelBrushed_7174_BaseColor"
+        },
+        {
+          "originalSize": [
+            8192,
+            8192
+          ],
+          "resizedSize": [
+            1024,
+            1024
+          ],
+          "originalBytes": 74028447,
+          "webBytes": 10031,
+          "mimeType": "image/jpeg",
+          "name": "Poliigon_MetalSteelBrushed_7174_Metallic-Poliigon_MetalSteelBrushed_7174_Roughness"
+        }
+      ]
+    },
+    {
+      "nodeIndex": 13,
+      "meshIndex": 13,
+      "name": "CORE SPHERE",
+      "meshName": "Sphere.005",
+      "transform": {
+        "translation": [
+          -33.44562911987305,
+          -1.5046663284301758,
+          57.164737701416016
+        ],
+        "rotation": [
+          0.006267381366342306,
+          0.008262633346021175,
+          -0.0026866572443395853,
+          0.9999427199363708
+        ]
+      },
+      "primitiveCount": 3,
+      "localBounds": {
+        "min": [
+          -1.0866321325302124,
+          -0.5336571335792542,
+          -0.6109824776649475
+        ],
+        "max": [
+          0.03175672888755798,
+          0.57744961977005,
+          0.561722993850708
+        ]
+      },
+      "id": "core-sphere",
+      "src": "parts/core-sphere.glb",
+      "bytes": 6250328,
+      "webImages": [
+        {
+          "originalSize": [
+            8192,
+            8192
+          ],
+          "resizedSize": [
+            1024,
+            1024
+          ],
+          "originalBytes": 8639944,
+          "webBytes": 52804,
+          "mimeType": "image/jpeg",
+          "name": "Poliigon_MetalSteelBrushed_7174_BaseColor"
+        },
+        {
+          "originalSize": [
+            8192,
+            8192
+          ],
+          "resizedSize": [
+            1024,
+            1024
+          ],
+          "originalBytes": 74028447,
+          "webBytes": 10031,
+          "mimeType": "image/jpeg",
+          "name": "Poliigon_MetalSteelBrushed_7174_Metallic-Poliigon_MetalSteelBrushed_7174_Roughness"
+        }
+      ]
+    }
+  ]
+}
