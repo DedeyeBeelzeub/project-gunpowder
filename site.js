@@ -29,6 +29,10 @@ function escapeHtml(value) {
 }
 
 function detailHref(project) {
+  if (project.sceneManifest) {
+    return `scene.html?id=${encodeURIComponent(project.id)}`;
+  }
+
   return `project.html?id=${encodeURIComponent(project.id)}`;
 }
 

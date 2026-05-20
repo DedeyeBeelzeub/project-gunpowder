@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Interactive multi-object 3D scene inspection from the Project Gunpowder portfolio."
+    />
+    <title>Project Gunpowder | Scene Inspector</title>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+    <link rel="stylesheet" href="styles.css?v=15" />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+        }
+      }
+    </script>
+    <script src="projects.js?v=6" defer></script>
+    <script type="module" src="scene-viewer.js?v=2"></script>
+  </head>
+  <body class="scene-page">
+    <header class="site-header" aria-label="Primary">
+      <a class="brand" href="index.html#top" aria-label="Project Gunpowder home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>Noble Donage</span>
+      </a>
+      <nav class="site-nav">
+        <a href="index.html#work">Work</a>
+        <a href="index.html#profile">Profile</a>
+        <a href="mailto:noble.donage@gmail.com">Contact</a>
+      </nav>
+    </header>
+
+    <main class="scene-shell">
+      <section class="scene-inspector" aria-labelledby="scene-title">
+        <div class="scene-canvas-wrap" id="scene-canvas-wrap">
+          <canvas id="scene-canvas" aria-label="Interactive assembled 3D scene"></canvas>
+          <div class="scene-vignette" aria-hidden="true"></div>
+          <div class="scanlines" aria-hidden="true"></div>
+          <div class="scene-load" id="scene-load">
+            <span id="scene-load-text">Loading Scene</span>
+            <div class="load-track scene-load-track" aria-hidden="true">
+              <span id="scene-load-progress"></span>
+            </div>
+          </div>
+          <div class="scene-toolstrip" aria-label="Scene tools">
+            <label class="scene-slider">
+              <span>Explode</span>
+              <input id="explode-range" type="range" min="0" max="100" value="0" />
+            </label>
+            <button type="button" id="scene-isolate" aria-pressed="false">Isolate</button>
+            <button type="button" id="scene-reset">Reset</button>
+          </div>
+        </div>
+
+        <aside class="scene-info-panel">
+          <a class="back-link" href="index.html#work">Back to Work</a>
+          <p class="eyebrow" id="scene-category">Scene</p>
+          <h1 id="scene-title">Gate Scene</h1>
+          <p id="scene-summary">Assembled from extracted GLB parts.</p>
+
+          <dl class="detail-specs scene-specs" aria-label="Scene details">
+            <div>
+              <dt>Parts</dt>
+              <dd id="scene-part-count">-</dd>
+            </div>
+            <div>
+              <dt>Scene Size</dt>
+              <dd id="scene-size">-</dd>
+            </div>
+            <div>
+              <dt>Selected</dt>
+              <dd id="selected-part-name">None</dd>
+            </div>
+            <div>
+              <dt>Mode</dt>
+              <dd id="scene-mode">Assembled</dd>
+            </div>
+          </dl>
+
+          <div class="scene-part-list-wrap">
+            <p class="panel-kicker">Scene Parts</p>
+            <div class="scene-part-list" id="scene-part-list"></div>
+          </div>
+        </aside>
+      </section>
+    </main>
+  </body>
+</html>

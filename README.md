@@ -17,8 +17,10 @@ http://localhost:4173
 ## Files
 
 - `index.html` - static portfolio page
+- `scene.html` - manifest-driven multi-object scene inspector
 - `styles.css` - visual system and responsive layout
 - `site.js` - camera controls and loading state
+- `scene-viewer.js` - Three.js scene assembly, selection, and explode controls
 - `ROADMAP.md` - future portfolio structure notes
 - `models/scifi-scene.glb` - current featured 3D model
 - `models/ac.glb` - AC hard-surface model

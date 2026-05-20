@@ -134,5 +134,23 @@ window.PORTFOLIO_PROJECTS = [
     summary: "A large hard-surface sphere asset with a compressed mobile inspection file.",
     description:
       "A heavy industrial sphere model with embedded metal materials. The desktop detail view keeps the full-resolution GLB available, while the gallery and mobile detail view use a compressed realtime version for smoother loading."
+  },
+  {
+    id: "gate-scene",
+    title: "GATE SCENE",
+    category: "Environment / Scene",
+    kind: "scene",
+    sceneManifest: "models/gate-scene/manifest.json",
+    desktopSrc: "models/gate-scene/parts/cover-01.glb",
+    mobileSrc: "models/gate-scene/parts/cover-01.glb",
+    desktopSize: "42.7 MB parts",
+    mobileSize: "42.7 MB parts",
+    format: "GLB parts",
+    mood: "Inspectable assembly",
+    cardOrbit: "-35deg 66deg 320%",
+    detailOrbit: "-35deg 64deg 340%",
+    summary: "A multi-object gate assembly rebuilt from separate GLB parts with saved scene transforms.",
+    description:
+      "A manifest-driven scene assembled from individual extracted GLB parts. This is the first scene built for object selection, isolated inspection, and exploded-view interaction."
   }
 ];
