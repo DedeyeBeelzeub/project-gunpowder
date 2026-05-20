@@ -13,9 +13,11 @@ const loadPanel = document.querySelector("#scene-load");
 const loadText = document.querySelector("#scene-load-text");
 const loadProgress = document.querySelector("#scene-load-progress");
 const explodeRange = document.querySelector("#explode-range");
+const lightRange = document.querySelector("#light-range");
 const isolateButton = document.querySelector("#scene-isolate");
 const resetButton = document.querySelector("#scene-reset");
 const partList = document.querySelector("#scene-part-list");
+const scenePieceGrid = document.querySelector("#scene-piece-grid");
 
 const selectedName = document.querySelector("#selected-part-name");
 const sceneMode = document.querySelector("#scene-mode");
@@ -49,14 +51,21 @@ controls.maxDistance = 160;
 const assembly = new THREE.Group();
 scene.add(assembly);
 
-const fillLight = new THREE.HemisphereLight(0xd8d2bd, 0x17120d, 1.45);
+const baseLightLevels = {
+  fill: 1.45,
+  key: 3.2,
+  rim: 1.4,
+  exposure: 0.88,
+};
+
+const fillLight = new THREE.HemisphereLight(0xd8d2bd, 0x17120d, baseLightLevels.fill);
 scene.add(fillLight);
 
-const keyLight = new THREE.DirectionalLight(0xffe0a3, 3.2);
+const keyLight = new THREE.DirectionalLight(0xffe0a3, baseLightLevels.key);
 keyLight.position.set(18, 24, 20);
 scene.add(keyLight);
 
-const rimLight = new THREE.DirectionalLight(0x98b58e, 1.4);
+const rimLight = new THREE.DirectionalLight(0x98b58e, baseLightLevels.rim);
 rimLight.position.set(-18, 10, -20);
 scene.add(rimLight);
 
@@ -165,6 +174,78 @@ function buildPartButton(part) {
   return button;
 }
 
+function partSectionName(part) {
+  const signature = `${part.id ?? ""} ${part.name ?? ""} ${part.meshName ?? ""}`.toLowerCase();
+  if (signature.includes("cable")) {
+    return "Cables";
+  }
+  if (signature.includes("pipe") || signature.includes("cylinder")) {
+    return "Pipes";
+  }
+  if (signature.includes("cover")) {
+    return "Covers";
+  }
+  if (signature.includes("core") || signature.includes("sphere")) {
+    return "Core";
+  }
+  if (signature.includes("frame") || signature.includes("holder") || signature.includes("cube")) {
+    return "Structure";
+  }
+
+  return "Loose Parts";
+}
+
+function buildScenePieceCard(part) {
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = "scene-piece-card";
+  button.dataset.partId = part.id;
+  button.innerHTML = `
+    <span>${escapeHtml(part.name)}</span>
+    <small>${escapeHtml(part.meshName ?? "Mesh")} / ${formatBytes(part.bytes)}</small>
+  `;
+  button.addEventListener("click", () => {
+    selectPart(part);
+    canvasWrap?.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+  return button;
+}
+
+function renderScenePieceGrid() {
+  if (!scenePieceGrid || partGroups.length === 0) {
+    return;
+  }
+
+  const sections = new Map();
+  partGroups.forEach((part) => {
+    const sectionName = partSectionName(part);
+    if (!sections.has(sectionName)) {
+      sections.set(sectionName, []);
+    }
+    sections.get(sectionName).push(part);
+  });
+
+  scenePieceGrid.innerHTML = "";
+  [...sections.entries()].forEach(([sectionName, parts]) => {
+    const section = document.createElement("section");
+    section.className = "scene-piece-group";
+
+    const heading = document.createElement("div");
+    heading.className = "scene-piece-group-heading";
+    heading.innerHTML = `
+      <p>${escapeHtml(sectionName)}</p>
+      <span>${parts.length} ${parts.length === 1 ? "part" : "parts"}</span>
+    `;
+
+    const cards = document.createElement("div");
+    cards.className = "scene-piece-cards";
+    parts.forEach((part) => cards.append(buildScenePieceCard(part)));
+
+    section.append(heading, cards);
+    scenePieceGrid.append(section);
+  });
+}
+
 function syncPartList() {
   if (!partList || !manifest) {
     return;
@@ -178,8 +259,9 @@ function syncPartList() {
 }
 
 function setActivePartButton(part) {
-  partList?.querySelectorAll("button").forEach((button) => {
-    button.setAttribute("aria-pressed", String(Boolean(part) && button.dataset.partId === part.id));
+  document.querySelectorAll(".scene-part-list button, .scene-piece-card").forEach((button) => {
+    const isActive = Boolean(part) && button.dataset.partId === part.id;
+    button.setAttribute("aria-pressed", String(isActive));
   });
 }
 
@@ -272,11 +354,23 @@ function updateExplode() {
   syncIsolation();
 }
 
+function updateLighting() {
+  const amount = Number(lightRange?.value ?? 100) / 100;
+  fillLight.intensity = baseLightLevels.fill * amount;
+  keyLight.intensity = baseLightLevels.key * amount;
+  rimLight.intensity = baseLightLevels.rim * amount;
+  renderer.toneMappingExposure = baseLightLevels.exposure * (0.82 + amount * 0.18);
+}
+
 function resetScene() {
   if (explodeRange) {
     explodeRange.value = "0";
   }
+  if (lightRange) {
+    lightRange.value = "100";
+  }
   isolateMode = false;
+  updateLighting();
   updateExplode();
   clearSelectionMaterial();
   selectedPart = null;
@@ -377,6 +471,7 @@ async function loadScene() {
     part.explodeDirection.copy(direction.normalize());
   });
 
+  renderScenePieceGrid();
   frameScene();
 }
 
@@ -390,6 +485,7 @@ function animate() {
 }
 
 explodeRange?.addEventListener("input", updateExplode);
+lightRange?.addEventListener("input", updateLighting);
 isolateButton?.addEventListener("click", () => {
   isolateMode = !isolateMode;
   syncIsolation();

@@ -9,7 +9,7 @@
     />
     <title>Project Gunpowder | Scene Inspector</title>
     <link rel="preconnect" href="https://cdn.jsdelivr.net" />
-    <link rel="stylesheet" href="styles.css?v=15" />
+    <link rel="stylesheet" href="styles.css?v=16" />
     <script type="importmap">
       {
         "imports": {
@@ -19,7 +19,7 @@
       }
     </script>
     <script src="projects.js?v=6" defer></script>
-    <script type="module" src="scene-viewer.js?v=2"></script>
+    <script type="module" src="scene-viewer.js?v=3"></script>
   </head>
   <body class="scene-page">
     <header class="site-header" aria-label="Primary">
@@ -50,6 +50,10 @@
             <label class="scene-slider">
               <span>Explode</span>
               <input id="explode-range" type="range" min="0" max="100" value="0" />
+            </label>
+            <label class="scene-slider">
+              <span>Light</span>
+              <input id="light-range" type="range" min="35" max="140" value="100" />
             </label>
             <button type="button" id="scene-isolate" aria-pressed="false">Isolate</button>
             <button type="button" id="scene-reset">Reset</button>
@@ -82,10 +86,24 @@
           </dl>
 
           <div class="scene-part-list-wrap">
-            <p class="panel-kicker">Scene Parts</p>
+            <div class="scene-part-list-head">
+              <a class="panel-kicker scene-part-heading-link" href="#scene-pieces">Scene Parts</a>
+              <a href="index.html?filter=piece#work">Pieces Index</a>
+            </div>
             <div class="scene-part-list" id="scene-part-list"></div>
           </div>
         </aside>
+      </section>
+
+      <section class="scene-parts-section" id="scene-pieces" aria-labelledby="scene-pieces-title">
+        <div class="section-heading compact-heading">
+          <div>
+            <p class="eyebrow">Individual Pieces</p>
+            <h2 id="scene-pieces-title">Parts From This Scene</h2>
+          </div>
+          <a class="back-link" href="index.html?filter=piece#work">All Individual Pieces</a>
+        </div>
+        <div class="scene-piece-grid" id="scene-piece-grid"></div>
       </section>
     </main>
   </body>

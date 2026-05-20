@@ -17,7 +17,9 @@ const narrowViewport = window.matchMedia("(max-width: 700px)");
 const coarsePointer = window.matchMedia("(pointer: coarse)");
 let defaultOrbit = viewer?.getAttribute("camera-orbit") ?? cameraPresets.desktop[0];
 const sourceAvailability = new Map();
-let currentFilter = "all";
+const validFilters = new Set(["all", "scene", "piece"]);
+const requestedFilter = new URLSearchParams(window.location.search).get("filter");
+let currentFilter = validFilters.has(requestedFilter) ? requestedFilter : "all";
 
 function escapeHtml(value) {
   return String(value)
@@ -109,6 +111,21 @@ function syncFilterButtons() {
   filterButtons.forEach((button) => {
     button.setAttribute("aria-pressed", String(button.dataset.filter === currentFilter));
   });
+}
+
+function updateFilterUrl(filter) {
+  if (!window.history?.replaceState) {
+    return;
+  }
+
+  const url = new URL(window.location.href);
+  if (filter === "all") {
+    url.searchParams.delete("filter");
+  } else {
+    url.searchParams.set("filter", filter);
+  }
+  url.hash = "work";
+  window.history.replaceState({}, "", url);
 }
 
 async function sourceExists(url) {
@@ -282,9 +299,11 @@ if (viewer) {
 
   filterButtons.forEach((button) => {
     button.addEventListener("click", () => {
-      currentFilter = button.dataset.filter ?? "all";
+      const nextFilter = button.dataset.filter ?? "all";
+      currentFilter = validFilters.has(nextFilter) ? nextFilter : "all";
       renderProjects();
       syncFilterButtons();
+      updateFilterUrl(currentFilter);
       void applyResponsiveSources();
       syncPerformanceMode();
     });
