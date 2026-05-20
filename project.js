@@ -7,6 +7,20 @@ const coarsePointer = window.matchMedia("(pointer: coarse)");
 const sourceAvailability = new Map();
 
 const detailViewer = document.querySelector("#detail-viewer");
+const relatedGrid = document.querySelector("#related-grid");
+
+function escapeHtml(value) {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+function detailHref(item) {
+  return `project.html?id=${encodeURIComponent(item.id)}`;
+}
 
 async function sourceExists(url) {
   if (!url) {
@@ -55,6 +69,34 @@ function watchMediaQuery(mediaQuery, callback) {
   }
 }
 
+function relatedProjects() {
+  if (!project) {
+    return [];
+  }
+
+  const sameKind = projects.filter((item) => item.id !== project.id && item.kind === project.kind);
+  const otherKind = projects.filter((item) => item.id !== project.id && item.kind !== project.kind);
+  return [...sameKind, ...otherKind].slice(0, 4);
+}
+
+function relatedCard(item) {
+  return `
+    <a class="related-card" href="${detailHref(item)}">
+      <span>${escapeHtml(item.category)}</span>
+      <strong>${escapeHtml(item.title)}</strong>
+      <small>${escapeHtml(item.mobileSize)} mobile / ${escapeHtml(item.desktopSize)} desktop</small>
+    </a>
+  `;
+}
+
+function renderRelatedProjects() {
+  if (!relatedGrid) {
+    return;
+  }
+
+  relatedGrid.innerHTML = relatedProjects().map(relatedCard).join("");
+}
+
 async function applyModelSource() {
   if (!detailViewer || !project) {
     return;
@@ -81,6 +123,7 @@ if (project) {
   setText("#detail-mobile-size", project.mobileSize);
   setText("#detail-mood", project.mood);
   setText("#detail-description", project.description);
+  renderRelatedProjects();
   applyModelSource();
 }
 

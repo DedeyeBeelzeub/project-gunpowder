@@ -9,13 +9,13 @@
     />
     <title>Noble Donage | 3D Portfolio</title>
     <link rel="preconnect" href="https://ajax.googleapis.com" />
-    <link rel="stylesheet" href="styles.css?v=12" />
+    <link rel="stylesheet" href="styles.css?v=13" />
     <script
       type="module"
       src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"
     ></script>
-    <script src="projects.js?v=4" defer></script>
-    <script src="site.js?v=9" defer></script>
+    <script src="projects.js?v=5" defer></script>
+    <script src="site.js?v=10" defer></script>
   </head>
   <body>
     <header class="site-header" aria-label="Primary">
@@ -116,6 +116,11 @@
           <p class="section-note">
             Open a card for full-screen inspection; desktop previews can rotate in place.
           </p>
+        </div>
+        <div class="work-toolbar" aria-label="Filter work by type">
+          <button class="filter-chip" type="button" data-filter="all" aria-pressed="true">All</button>
+          <button class="filter-chip" type="button" data-filter="scene">Scenes</button>
+          <button class="filter-chip" type="button" data-filter="piece">Individual Pieces</button>
         </div>
         <div class="project-grid" id="project-grid"></div>
       </section>

@@ -4,6 +4,7 @@ const projectGrid = document.querySelector("#project-grid");
 let projectViewers = [];
 const progress = document.querySelector("#load-progress");
 const orbitButtons = [...document.querySelectorAll("[data-orbit]")];
+const filterButtons = [...document.querySelectorAll("[data-filter]")];
 const rotateButton = document.querySelector("#toggle-rotate");
 const resetButton = document.querySelector("#reset-view");
 
@@ -16,6 +17,7 @@ const narrowViewport = window.matchMedia("(max-width: 700px)");
 const coarsePointer = window.matchMedia("(pointer: coarse)");
 let defaultOrbit = viewer?.getAttribute("camera-orbit") ?? cameraPresets.desktop[0];
 const sourceAvailability = new Map();
+let currentFilter = "all";
 
 function escapeHtml(value) {
   return String(value)
@@ -33,8 +35,14 @@ function detailHref(project) {
 function projectCard(project) {
   const href = detailHref(project);
   const previewSrc = project.previewSrc ?? project.mobileSrc ?? project.desktopSrc;
+  const kind = project.kind ?? "piece";
+  const isFeatured = project.id === "scifi-scene";
   return `
-    <article class="project-tile" data-project-id="${escapeHtml(project.id)}">
+    <article
+      class="project-tile project-tile-${escapeHtml(kind)}${isFeatured ? " is-featured" : ""}"
+      data-project-id="${escapeHtml(project.id)}"
+      data-project-kind="${escapeHtml(kind)}"
+    >
       <div class="tile-media">
         <model-viewer
           class="project-viewer"
@@ -87,8 +95,16 @@ function renderProjects() {
     return;
   }
 
-  projectGrid.innerHTML = projects.map(projectCard).join("");
+  const visibleProjects =
+    currentFilter === "all" ? projects : projects.filter((project) => (project.kind ?? "piece") === currentFilter);
+  projectGrid.innerHTML = visibleProjects.map(projectCard).join("");
   projectViewers = [...document.querySelectorAll(".project-viewer")];
+}
+
+function syncFilterButtons() {
+  filterButtons.forEach((button) => {
+    button.setAttribute("aria-pressed", String(button.dataset.filter === currentFilter));
+  });
 }
 
 async function sourceExists(url) {
@@ -163,6 +179,12 @@ function setPressed(activeButton) {
   });
 }
 
+function jumpCameraToGoal(modelViewer) {
+  if (typeof modelViewer?.jumpCameraToGoal === "function") {
+    modelViewer.jumpCameraToGoal();
+  }
+}
+
 function syncCameraPresets(shouldMoveCamera = false) {
   const presets = narrowViewport.matches ? cameraPresets.mobile : cameraPresets.desktop;
   orbitButtons.forEach((button, index) => {
@@ -177,7 +199,7 @@ function syncCameraPresets(shouldMoveCamera = false) {
     const nextOrbit = activeButton?.dataset.orbit ?? defaultOrbit;
     viewer.setAttribute("camera-orbit", nextOrbit);
     viewer.cameraOrbit = nextOrbit;
-    viewer.jumpCameraToGoal();
+    jumpCameraToGoal(viewer);
   }
 }
 
@@ -211,6 +233,7 @@ function watchMediaQuery(mediaQuery, callback) {
 
 if (viewer) {
   renderProjects();
+  syncFilterButtons();
   applyResponsiveSources();
   syncCameraPresets(true);
   syncPerformanceMode();
@@ -234,7 +257,7 @@ if (viewer) {
     button.addEventListener("click", () => {
       viewer.setAttribute("camera-orbit", button.dataset.orbit);
       viewer.cameraOrbit = button.dataset.orbit;
-      viewer.jumpCameraToGoal();
+      jumpCameraToGoal(viewer);
       setPressed(button);
     });
   });
@@ -249,8 +272,18 @@ if (viewer) {
     viewer.setAttribute("camera-orbit", defaultOrbit);
     viewer.cameraOrbit = defaultOrbit;
     viewer.fieldOfView = "42deg";
-    viewer.jumpCameraToGoal();
+    jumpCameraToGoal(viewer);
     setPressed(orbitButtons[0]);
+  });
+
+  filterButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      currentFilter = button.dataset.filter ?? "all";
+      renderProjects();
+      syncFilterButtons();
+      void applyResponsiveSources();
+      syncPerformanceMode();
+    });
   });
 
   watchMediaQuery(narrowViewport, () => {
