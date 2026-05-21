@@ -28,6 +28,7 @@ http://localhost:4173
 - `models/x.glb` - X hard-surface symbol model
 - `models/hailmary/manifest.json` - extracted multi-object Hail Mary scene manifest
 - `models/spaceship.glb` - SpaceShip sci-fi vehicle model
+- `models/rockys-ship/manifest.json` - extracted multi-object Rocky's Ship scene manifest
 - `models/citadel.glb` - Citadel structure model
 - `models/deathsphere.glb` - Deathsphere hard-surface artifact model
 - `models/gate-scene/manifest.json` - extracted multi-object Gate scene manifest

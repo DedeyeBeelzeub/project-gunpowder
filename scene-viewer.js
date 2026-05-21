@@ -194,6 +194,15 @@ function partSectionName(part) {
   if (signature.includes("engine") || signature.includes("thruster")) {
     return "Propulsion";
   }
+  if (signature.includes("needle")) {
+    return "Needles";
+  }
+  if (signature.includes("loop")) {
+    return "Loops";
+  }
+  if (signature.includes("body")) {
+    return "Body";
+  }
   if (signature.includes("casing")) {
     return "Casing";
   }

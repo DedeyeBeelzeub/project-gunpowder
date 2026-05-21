@@ -104,6 +104,25 @@ window.PORTFOLIO_PROJECTS = [
       "A heavier spacecraft model built for full-screen inspection. Because this file is geometry-heavy rather than texture-heavy, the detail page presents it as a focused model view instead of loading it into the mobile gallery."
   },
   {
+    id: "rockys-ship",
+    title: "ROCKY'S SHIP",
+    category: "Vehicle / Scene",
+    kind: "scene",
+    sceneManifest: "models/rockys-ship/manifest.json",
+    previewImage: "models/rockys-ship/thumbnail.png",
+    desktopSrc: "models/rockys-ship/parts/centerbody.glb",
+    mobileSrc: "models/rockys-ship/parts/centerbody.glb",
+    desktopSize: "942 KB parts",
+    mobileSize: "942 KB parts",
+    format: "GLB parts",
+    mood: "Needle ship assembly",
+    cardOrbit: "-35deg 66deg 320%",
+    detailOrbit: "-35deg 64deg 340%",
+    summary: "A lightweight multi-part ship scene rebuilt for full assembly inspection.",
+    description:
+      "A compact ship scene extracted into loops, body sections, and needle parts. The scene viewer presents the full assembled vehicle with selection, isolation, clay inspection, and exploded-view controls."
+  },
+  {
     id: "citadel",
     title: "CITADEL",
     category: "Environment / Structure",
