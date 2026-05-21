@@ -110,17 +110,17 @@ window.PORTFOLIO_PROJECTS = [
     kind: "scene",
     sceneManifest: "models/rockys-ship/manifest.json",
     previewImage: "models/rockys-ship/thumbnail.png",
-    desktopSrc: "models/rockys-ship/parts/centerbody.glb",
-    mobileSrc: "models/rockys-ship/parts/centerbody.glb",
-    desktopSize: "942 KB parts",
-    mobileSize: "942 KB parts",
+    desktopSrc: "models/rockys-ship/parts/centerbody-001.glb",
+    mobileSrc: "models/rockys-ship/parts/centerbody-001.glb",
+    desktopSize: "72.7 MB parts",
+    mobileSize: "72.7 MB parts",
     format: "GLB parts",
     mood: "Needle ship assembly",
     cardOrbit: "-35deg 66deg 320%",
     detailOrbit: "-35deg 64deg 340%",
-    summary: "A lightweight multi-part ship scene rebuilt for full assembly inspection.",
+    summary: "A multi-part ship scene rebuilt for full assembly inspection with corrected transforms.",
     description:
-      "A compact ship scene extracted into loops, body sections, and needle parts. The scene viewer presents the full assembled vehicle with selection, isolation, clay inspection, and exploded-view controls."
+      "A corrected ship scene extracted into loops, body sections, and needle parts. The scene viewer presents the full assembled vehicle with selection, isolation, clay inspection, and exploded-view controls."
   },
   {
     id: "citadel",
