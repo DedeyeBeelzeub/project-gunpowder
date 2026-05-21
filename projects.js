@@ -70,19 +70,20 @@ window.PORTFOLIO_PROJECTS = [
   {
     id: "hailmary",
     title: "HAIL MARY",
-    category: "Figure / Pose",
-    kind: "piece",
-    desktopSrc: "models/hailmary.glb",
-    mobileSrc: "models/hailmary-mobile.glb",
-    desktopSize: "75 KB",
-    mobileSize: "75 KB",
-    format: "GLB",
-    mood: "Gesture study",
-    cardOrbit: "-25deg 66deg 260%",
-    detailOrbit: "-25deg 64deg 280%",
-    summary: "A compact figure/pose asset prepared for fast realtime inspection.",
+    category: "Sci-Fi / Scene",
+    kind: "scene",
+    sceneManifest: "models/hailmary/manifest.json",
+    desktopSrc: "models/hailmary/parts/mainbbase.glb",
+    mobileSrc: "models/hailmary/parts/mainbbase.glb",
+    desktopSize: "48.7 MB parts",
+    mobileSize: "48.7 MB parts",
+    format: "GLB parts",
+    mood: "Propulsion assembly",
+    cardOrbit: "-35deg 66deg 320%",
+    detailOrbit: "-35deg 64deg 340%",
+    summary: "A multi-object sci-fi assembly extracted into inspectable scene parts with saved transforms.",
     description:
-      "A lightweight pose study that loads quickly and works well as a focused inspection piece. Its small file size makes it comfortable across desktop and mobile detail views."
+      "A heavier Hail Mary scene rebuilt from separate GLB parts. The scene viewer keeps the full assembly available for selection, isolation, clay inspection, and exploded-view review."
   },
   {
     id: "spaceship",

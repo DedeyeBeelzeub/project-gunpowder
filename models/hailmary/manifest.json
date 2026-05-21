@@ -1,0 +1,521 @@
+{
+  "id": "hailmary",
+  "name": "Hail Mary",
+  "source": "hailmary.glb",
+  "asset": {
+    "generator": "Khronos glTF Blender I/O v5.1.18",
+    "version": "2.0"
+  },
+  "partCount": 12,
+  "textureMaxSize": 1024,
+  "parts": [
+    {
+      "nodeIndex": 0,
+      "meshIndex": 0,
+      "name": "Engine1.001",
+      "meshName": "Cylinder.033",
+      "transform": {
+        "translation": [
+          -82.18045806884766,
+          38.05814743041992,
+          130.2584991455078
+        ],
+        "rotation": [
+          -0.7033559083938599,
+          0,
+          0,
+          0.7108379006385803
+        ],
+        "scale": [
+          1,
+          7.34463357925415,
+          1.0029597282409668
+        ]
+      },
+      "primitiveCount": 2,
+      "localBounds": {
+        "min": [
+          -1.1642773151397705,
+          -1.8378428220748901,
+          -1.6580332517623901
+        ],
+        "max": [
+          1.1780309677124023,
+          1.5682928562164307,
+          1.1711995601654053
+        ]
+      },
+      "id": "engine1-001",
+      "src": "parts/engine1-001.glb",
+      "bytes": 8185224,
+      "webImages": []
+    },
+    {
+      "nodeIndex": 1,
+      "meshIndex": 1,
+      "name": "MainbBase",
+      "meshName": "Cylinder.034",
+      "transform": {
+        "translation": [
+          -82.16958618164062,
+          34.66533279418945,
+          131.3004150390625
+        ],
+        "rotation": [
+          -0.7033558487892151,
+          0,
+          0,
+          0.7108379006385803
+        ],
+        "scale": [
+          0.8640832304954529,
+          6.34637451171875,
+          0.8666406869888306
+        ]
+      },
+      "primitiveCount": 2,
+      "localBounds": {
+        "min": [
+          -2.9483642578125,
+          -1.9243621826171875,
+          -2.957472562789917
+        ],
+        "max": [
+          2.9482011795043945,
+          2.658665418624878,
+          2.9390945434570312
+        ]
+      },
+      "id": "mainbbase",
+      "src": "parts/mainbbase.glb",
+      "bytes": 17714140,
+      "webImages": []
+    },
+    {
+      "nodeIndex": 2,
+      "meshIndex": 2,
+      "name": "Cylinder.023",
+      "meshName": "Cylinder.036",
+      "transform": {
+        "translation": [
+          -82.19230651855469,
+          34.136688232421875,
+          143.5442657470703
+        ],
+        "scale": [
+          1.0450745820999146,
+          1.0450745820999146,
+          1.0450745820999146
+        ]
+      },
+      "primitiveCount": 1,
+      "localBounds": {
+        "min": [
+          -0.8471803069114685,
+          -0.4535163640975952,
+          -0.35156288743019104
+        ],
+        "max": [
+          0.9392890334129333,
+          1.1338419914245605,
+          0.3807539939880371
+        ]
+      },
+      "id": "cylinder-023",
+      "src": "parts/cylinder-023.glb",
+      "bytes": 138180,
+      "webImages": []
+    },
+    {
+      "nodeIndex": 3,
+      "meshIndex": 3,
+      "name": "thrusters.001",
+      "meshName": "Cylinder.037",
+      "transform": {
+        "translation": [
+          -81.75653076171875,
+          34.26270294189453,
+          142.5743408203125
+        ],
+        "scale": [
+          1.0066280364990234,
+          1.0066280364990234,
+          3.3730623722076416
+        ]
+      },
+      "primitiveCount": 1,
+      "localBounds": {
+        "min": [
+          -2.3106343746185303,
+          -1.7256619930267334,
+          -0.3413301408290863
+        ],
+        "max": [
+          1.7179285287857056,
+          2.316690683364868,
+          0.3251309394836426
+        ]
+      },
+      "id": "thrusters-001",
+      "src": "parts/thrusters-001.glb",
+      "bytes": 353628,
+      "webImages": []
+    },
+    {
+      "nodeIndex": 5,
+      "meshIndex": 4,
+      "name": "Engine2.001",
+      "meshName": "Cylinder.039",
+      "transform": {
+        "translation": [
+          -80.16668701171875,
+          31.181875228881836,
+          130.2584991455078
+        ],
+        "rotation": [
+          -0.013861017301678658,
+          0.7032193541526794,
+          -0.7106997966766357,
+          0.014008231461048126
+        ],
+        "scale": [
+          1,
+          7.34463357925415,
+          1.0029597282409668
+        ]
+      },
+      "primitiveCount": 2,
+      "localBounds": {
+        "min": [
+          -1.1642773151397705,
+          -1.8378428220748901,
+          -1.6580332517623901
+        ],
+        "max": [
+          1.1780309677124023,
+          1.5682928562164307,
+          1.1711995601654053
+        ]
+      },
+      "id": "engine2-001",
+      "src": "parts/engine2-001.glb",
+      "bytes": 8185224,
+      "webImages": []
+    },
+    {
+      "nodeIndex": 6,
+      "meshIndex": 5,
+      "name": "MainEngine.001",
+      "meshName": "Cylinder.040",
+      "transform": {
+        "translation": [
+          -83.70655059814453,
+          31.181875228881836,
+          130.2584991455078
+        ],
+        "rotation": [
+          -0.013861017301678658,
+          0.7032193541526794,
+          -0.7106997966766357,
+          0.014008231461048126
+        ],
+        "scale": [
+          1,
+          7.34463357925415,
+          1.0029597282409668
+        ]
+      },
+      "primitiveCount": 2,
+      "localBounds": {
+        "min": [
+          -1.1642773151397705,
+          -1.8378428220748901,
+          -1.6580332517623901
+        ],
+        "max": [
+          1.1780309677124023,
+          1.5682928562164307,
+          1.1711995601654053
+        ]
+      },
+      "id": "mainengine-001",
+      "src": "parts/mainengine-001.glb",
+      "bytes": 8185228,
+      "webImages": []
+    },
+    {
+      "nodeIndex": 7,
+      "meshIndex": 6,
+      "name": "Cylinder.028",
+      "meshName": "Cylinder.041",
+      "transform": {
+        "translation": [
+          -80.24026489257812,
+          32.2734260559082,
+          143.78622436523438
+        ],
+        "scale": [
+          1.0450745820999146,
+          1.0450745820999146,
+          1.0450745820999146
+        ]
+      },
+      "primitiveCount": 1,
+      "localBounds": {
+        "min": [
+          -0.4581927955150604,
+          -0.45612722635269165,
+          -0.32362625002861023
+        ],
+        "max": [
+          0.4581927955150604,
+          0.46287328004837036,
+          0.32165226340293884
+        ]
+      },
+      "id": "cylinder-028",
+      "src": "parts/cylinder-028.glb",
+      "bytes": 23880,
+      "webImages": []
+    },
+    {
+      "nodeIndex": 8,
+      "meshIndex": 7,
+      "name": "Cylinder.030",
+      "meshName": "Cylinder.042",
+      "transform": {
+        "translation": [
+          -82.18717193603516,
+          37.00395965576172,
+          143.74334716796875
+        ],
+        "scale": [
+          1.0450745820999146,
+          1.0450745820999146,
+          1.0450745820999146
+        ]
+      },
+      "primitiveCount": 1,
+      "localBounds": {
+        "min": [
+          -0.4581927955150604,
+          -0.45612722635269165,
+          -0.32362625002861023
+        ],
+        "max": [
+          0.4581927955150604,
+          0.46287328004837036,
+          0.32165226340293884
+        ]
+      },
+      "id": "cylinder-030",
+      "src": "parts/cylinder-030.glb",
+      "bytes": 23880,
+      "webImages": []
+    },
+    {
+      "nodeIndex": 9,
+      "meshIndex": 8,
+      "name": "Cylinder.031",
+      "meshName": "Cylinder.043",
+      "transform": {
+        "translation": [
+          -83.74748229980469,
+          32.26839828491211,
+          143.7420654296875
+        ],
+        "scale": [
+          1.0450745820999146,
+          1.0450745820999146,
+          1.0450745820999146
+        ]
+      },
+      "primitiveCount": 1,
+      "localBounds": {
+        "min": [
+          -0.4581927955150604,
+          -0.45612722635269165,
+          -0.32362625002861023
+        ],
+        "max": [
+          0.4581927955150604,
+          0.46287328004837036,
+          0.32165226340293884
+        ]
+      },
+      "id": "cylinder-031",
+      "src": "parts/cylinder-031.glb",
+      "bytes": 23880,
+      "webImages": []
+    },
+    {
+      "nodeIndex": 10,
+      "meshIndex": 9,
+      "name": "Cube.003",
+      "meshName": "Cube.003",
+      "transform": {
+        "translation": [
+          -82.00274658203125,
+          34.213340759277344,
+          141.32814025878906
+        ],
+        "scale": [
+          0.16148220002651215,
+          0.27106159925460815,
+          1.7109934091567993
+        ]
+      },
+      "primitiveCount": 2,
+      "localBounds": {
+        "min": [
+          -1.1846266984939575,
+          12.086587905883789,
+          -0.9450728297233582
+        ],
+        "max": [
+          0.9582609534263611,
+          52.38856506347656,
+          0.9450880885124207
+        ]
+      },
+      "id": "cube-003",
+      "src": "parts/cube-003.glb",
+      "bytes": 88804,
+      "webImages": [
+        {
+          "originalSize": [
+            4096,
+            4096
+          ],
+          "resizedSize": [
+            1024,
+            1024
+          ],
+          "originalBytes": 8208392,
+          "webBytes": 13075,
+          "mimeType": "image/jpeg",
+          "name": "Metal049A_4K-JPG_Color"
+        },
+        {
+          "originalSize": [
+            4096,
+            4096
+          ],
+          "resizedSize": [
+            1024,
+            1024
+          ],
+          "originalBytes": 10760122,
+          "webBytes": 8421,
+          "mimeType": "image/jpeg",
+          "name": "Metal049A_4K-JPG_Metalness-Metal049A_4K-JPG_Roughness"
+        }
+      ]
+    },
+    {
+      "nodeIndex": 11,
+      "meshIndex": 10,
+      "name": "Cube.004",
+      "meshName": "Cube.004",
+      "transform": {
+        "translation": [
+          -82.00274658203125,
+          17.44243049621582,
+          141.32814025878906
+        ],
+        "scale": [
+          0.16148220002651215,
+          0.27106159925460815,
+          1.7109934091567993
+        ]
+      },
+      "primitiveCount": 2,
+      "localBounds": {
+        "min": [
+          -1.1846266984939575,
+          12.08659553527832,
+          -0.9450728297233582
+        ],
+        "max": [
+          0.9582609534263611,
+          52.388572692871094,
+          0.9450880885124207
+        ]
+      },
+      "id": "cube-004",
+      "src": "parts/cube-004.glb",
+      "bytes": 88808,
+      "webImages": [
+        {
+          "originalSize": [
+            4096,
+            4096
+          ],
+          "resizedSize": [
+            1024,
+            1024
+          ],
+          "originalBytes": 8208392,
+          "webBytes": 13075,
+          "mimeType": "image/jpeg",
+          "name": "Metal049A_4K-JPG_Color"
+        },
+        {
+          "originalSize": [
+            4096,
+            4096
+          ],
+          "resizedSize": [
+            1024,
+            1024
+          ],
+          "originalBytes": 10760122,
+          "webBytes": 8421,
+          "mimeType": "image/jpeg",
+          "name": "Metal049A_4K-JPG_Metalness-Metal049A_4K-JPG_Roughness"
+        }
+      ]
+    },
+    {
+      "nodeIndex": 12,
+      "meshIndex": 11,
+      "name": "wireframecasing.001",
+      "meshName": "Cylinder.044",
+      "transform": {
+        "translation": [
+          -82.1696548461914,
+          34.584251403808594,
+          137.87451171875
+        ],
+        "rotation": [
+          -0.7033558487892151,
+          0,
+          0,
+          0.7108379006385803
+        ],
+        "scale": [
+          0.8316497206687927,
+          6.108161449432373,
+          0.8341112732887268
+        ]
+      },
+      "primitiveCount": 1,
+      "localBounds": {
+        "min": [
+          -3.3072571754455566,
+          -0.40974971652030945,
+          -3.307119607925415
+        ],
+        "max": [
+          3.3072571754455566,
+          0.40876105427742004,
+          3.3074052333831787
+        ]
+      },
+      "id": "wireframecasing-001",
+      "src": "parts/wireframecasing-001.glb",
+      "bytes": 8011372,
+      "webImages": []
+    }
+  ]
+}

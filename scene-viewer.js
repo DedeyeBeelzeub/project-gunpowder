@@ -191,8 +191,17 @@ function partSectionName(part) {
   if (signature.includes("cable")) {
     return "Cables";
   }
-  if (signature.includes("pipe") || signature.includes("cylinder")) {
+  if (signature.includes("engine") || signature.includes("thruster")) {
+    return "Propulsion";
+  }
+  if (signature.includes("casing")) {
+    return "Casing";
+  }
+  if (signature.includes("pipe")) {
     return "Pipes";
+  }
+  if (signature.includes("cylinder")) {
+    return "Cylinders";
   }
   if (signature.includes("cover")) {
     return "Covers";
