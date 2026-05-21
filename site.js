@@ -43,14 +43,10 @@ function projectCard(project) {
   const previewSrc = project.previewSrc ?? project.mobileSrc ?? project.desktopSrc;
   const kind = project.kind ?? "piece";
   const isFeatured = project.id === "scifi-scene";
-  return `
-    <article
-      class="project-tile project-tile-${escapeHtml(kind)}${isFeatured ? " is-featured" : ""}"
-      data-project-id="${escapeHtml(project.id)}"
-      data-project-kind="${escapeHtml(kind)}"
-    >
-      <div class="tile-media">
-        <model-viewer
+  const hasPreviewImage = Boolean(project.previewImage);
+  const mediaMarkup = hasPreviewImage
+    ? `<img class="project-thumbnail" src="${escapeHtml(project.previewImage)}" alt="Preview of ${escapeHtml(project.title)}" loading="lazy" />`
+    : `<model-viewer
           class="project-viewer"
           data-desktop-src="${escapeHtml(previewSrc)}"
           data-mobile-src="${escapeHtml(project.mobileSrc)}"
@@ -73,7 +69,15 @@ function projectCard(project) {
           tone-mapping="aces"
           loading="lazy"
           reveal="auto"
-        ></model-viewer>
+        ></model-viewer>`;
+  return `
+    <article
+      class="project-tile project-tile-${escapeHtml(kind)}${isFeatured ? " is-featured" : ""}"
+      data-project-id="${escapeHtml(project.id)}"
+      data-project-kind="${escapeHtml(kind)}"
+    >
+      <div class="tile-media${hasPreviewImage ? " has-static-preview" : ""}">
+        ${mediaMarkup}
         <a class="tile-open-link" href="${href}">Open inspection</a>
       </div>
       <div class="tile-content">

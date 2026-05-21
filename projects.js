@@ -73,6 +73,7 @@ window.PORTFOLIO_PROJECTS = [
     category: "Sci-Fi / Scene",
     kind: "scene",
     sceneManifest: "models/hailmary/manifest.json",
+    previewImage: "models/hailmary/thumbnail.png",
     desktopSrc: "models/hailmary/parts/mainbbase.glb",
     mobileSrc: "models/hailmary/parts/mainbbase.glb",
     desktopSize: "48.7 MB parts",
